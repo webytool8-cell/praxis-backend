@@ -8,6 +8,11 @@ Dark, minimalist Next.js App Router frontend for PRAXIS system visualization.
 
 Dark, minimalist Next.js App Router frontend for PRAXIS system visualization.
 =======
+<<<<<<< HEAD
+# PRAXIS Frontend
+
+Dark, minimalist Next.js App Router frontend for PRAXIS system visualization.
+=======
 # PRAXIS Frontend (Initial Scaffold)
 
 Next.js App Router frontend scaffold for PRAXIS.
@@ -15,6 +20,8 @@ Next.js App Router frontend scaffold for PRAXIS.
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
@@ -29,9 +36,15 @@ npm run dev
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 >>>>>>> main
 >>>>>>> main
 ## Core structure
@@ -54,8 +67,11 @@ npm run dev
    - Output Directory: default/empty (not `public`)
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
+>>>>>>> main
 >>>>>>> main
 ## Troubleshooting build failures
 
@@ -75,6 +91,8 @@ If conflicts are present, remove markers and keep one valid JSON shape only (no 
 ### Conflict cleanup for branch merges
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 ## Conflict-resolution workflow (GitHub web editor + CLI)
 
 If GitHub says this branch has conflicts, resolve them before merging:
@@ -90,16 +108,24 @@ If GitHub says this branch has conflicts, resolve them before merging:
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
 >>>>>>> main
+>>>>>>> main
 
 ```bash
 git fetch origin
 git merge origin/main
 # or: git rebase origin/main
 <<<<<<< HEAD
+=======
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> main
 rg -n "^(<<<<<<<|=======|>>>>>>>)" .
 ```
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 
 ### Prevent recurring merge corruption
 
@@ -112,6 +138,7 @@ git checkout --theirs package.json .eslintrc.json vercel.json
 git add package.json .eslintrc.json vercel.json
 ```
 
+<<<<<<< HEAD
 
 ### CI guard for merge-related JSON breakage
 
@@ -124,6 +151,32 @@ You can run the same check locally:
 
 ```bash
 node scripts/validate-config.mjs
+<<<<<<< HEAD
+```
+
+
+### If Vercel still fails with the same package.json parse error
+
+That means the deployed branch already contains a malformed `package.json` blob. Repair it by restoring a known-good file and pushing a clean commit:
+
+```bash
+# from your target branch (main or preview branch)
+git fetch origin
+git checkout <target-branch>
+
+# restore package.json from a known-good branch or commit
+git checkout origin/work -- package.json
+# or: git checkout <good_commit_sha> -- package.json
+
+node scripts/validate-config.mjs
+git add package.json
+git commit -m "Restore valid package.json after bad merge resolution"
+git push
+```
+
+Also enable **branch protection** on `main` and require the `JSON Guard` check before merge.
+
+=======
 =======
 ```
 
@@ -148,10 +201,16 @@ rg -n "^(<<<<<<<|=======|>>>>>>>)" .
 ```
 
 >>>>>>> main
+=======
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
+>>>>>>> main
 ## Notes
 
 - Graph data and insights are placeholder data for now.
 - TODO comments mark backend AI analysis integration points.
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 =======
@@ -179,6 +238,8 @@ Vercel does **not** support `next.config.ts` in this setup. This project uses `n
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main

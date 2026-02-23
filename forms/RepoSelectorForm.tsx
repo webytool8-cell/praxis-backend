@@ -10,9 +10,16 @@ import { Panel } from "@/components/ui/Panel";
 import { Panel } from "@/components/ui/Panel";
 =======
 <<<<<<< HEAD
+import { Panel } from "@/components/ui/Panel";
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
@@ -23,9 +30,15 @@ export function RepoSelectorForm() {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 >>>>>>> main
 >>>>>>> main
     // TODO: Trigger GitHub OAuth and repository discovery APIs from PRAXIS backend.
@@ -45,6 +58,8 @@ export function RepoSelectorForm() {
         <p className="text-xs text-muted">OAuth status + repo list will appear here after integration.</p>
       </form>
     </Panel>
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 =======
@@ -70,6 +85,8 @@ export function RepoSelectorForm() {
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main

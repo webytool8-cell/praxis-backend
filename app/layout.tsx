@@ -2,9 +2,15 @@ import type { Metadata } from "next";
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 >>>>>>> main
 >>>>>>> main
 import { Inter } from "next/font/google";
@@ -16,6 +22,8 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "PRAXIS",
   description: "Premium system intelligence maps for modern codebases.",
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 =======
@@ -32,6 +40,8 @@ export const metadata: Metadata = {
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
+>>>>>>> main
+>>>>>>> main
 };
 
 export default function RootLayout({
@@ -43,9 +53,15 @@ export default function RootLayout({
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 >>>>>>> main
 >>>>>>> main
     <html lang="en" className="dark">
@@ -58,6 +74,8 @@ export default function RootLayout({
         <main className="relative z-10 mx-auto min-h-[calc(100vh-4rem)] max-w-[1500px] px-4 py-6 md:px-6">
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
     <html lang="en">
       <body>
@@ -67,6 +85,8 @@ export default function RootLayout({
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main

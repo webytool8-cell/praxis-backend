@@ -11,6 +11,10 @@ export default function UploadPage() {
       <h1 className="text-2xl font-semibold text-slate-100">Upload Project Files</h1>
       <p className="text-sm text-muted">Submit source files for PRAXIS architecture analysis.</p>
 =======
+<<<<<<< HEAD
+      <h1 className="text-2xl font-semibold text-slate-100">Upload Project Files</h1>
+      <p className="text-sm text-muted">Submit source files for PRAXIS architecture analysis.</p>
+=======
       <h1 className="text-2xl font-semibold">Upload Project Files</h1>
       <p className="text-sm text-slate-600">
         Submit source files for analysis to generate a PRAXIS system map.
@@ -19,6 +23,8 @@ export default function UploadPage() {
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main

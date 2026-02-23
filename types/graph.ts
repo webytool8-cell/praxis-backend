@@ -1,9 +1,15 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 >>>>>>> main
 >>>>>>> main
 export type ViewTemplate = "architecture" | "dataFlow" | "dependency" | "risk";
@@ -23,6 +29,8 @@ export interface GraphNodeDetails {
   riskScore: number;
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
 export interface GraphNodeDetails {
   id: string;
@@ -33,6 +41,8 @@ export interface GraphNodeDetails {
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main

@@ -10,9 +10,16 @@ import { Panel } from "@/components/ui/Panel";
 import { Panel } from "@/components/ui/Panel";
 =======
 <<<<<<< HEAD
+import { Panel } from "@/components/ui/Panel";
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
@@ -23,9 +30,15 @@ export function FileUploadForm() {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 >>>>>>> main
 >>>>>>> main
     // TODO: Integrate with backend upload endpoint and trigger asynchronous analysis job.
@@ -39,6 +52,8 @@ export function FileUploadForm() {
         <Button type="submit">Start Analysis</Button>
       </form>
     </Panel>
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 =======
@@ -55,6 +70,8 @@ export function FileUploadForm() {
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main

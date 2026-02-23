@@ -3,7 +3,12 @@ name: JSON Guard
 on:
   pull_request:
   push:
+<<<<<<< HEAD
+    branches: ['**']
+  workflow_dispatch:
+=======
     branches: [main]
+>>>>>>> main
 
 jobs:
   validate-config-json:
