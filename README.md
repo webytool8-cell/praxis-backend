@@ -24,6 +24,7 @@ Next.js App Router frontend scaffold for PRAXIS.
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
+>>>>>>> main
 
 ## Run locally
 
@@ -38,9 +39,12 @@ npm run dev
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
 >>>>>>> main
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 >>>>>>> main
 >>>>>>> main
 ## Core structure
@@ -118,6 +122,10 @@ git merge origin/main
 rg -n "^(<<<<<<<|=======|>>>>>>>)" .
 ```
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 
 ### Prevent recurring merge corruption
 
@@ -130,6 +138,7 @@ git checkout --theirs package.json .eslintrc.json vercel.json
 git add package.json .eslintrc.json vercel.json
 ```
 
+<<<<<<< HEAD
 
 ### CI guard for merge-related JSON breakage
 
@@ -192,6 +201,9 @@ rg -n "^(<<<<<<<|=======|>>>>>>>)" .
 ```
 
 >>>>>>> main
+=======
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 >>>>>>> main
 ## Notes
 
@@ -226,6 +238,7 @@ Vercel does **not** support `next.config.ts` in this setup. This project uses `n
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main

@@ -25,6 +25,7 @@ export function DashboardView() {
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
+>>>>>>> main
         <ControlsPanel />
         <GraphViewport />
         <DetailsPanel />

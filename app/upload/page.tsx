@@ -27,6 +27,7 @@ export default function UploadPage() {
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
+>>>>>>> main
       <FileUploadForm />
     </section>
   );

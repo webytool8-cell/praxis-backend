@@ -6,9 +6,12 @@
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
 >>>>>>> main
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 >>>>>>> main
 >>>>>>> main
 import { useState } from "react";
@@ -55,6 +58,7 @@ import { usePraxisStore } from "@/store/usePraxisStore";
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
+>>>>>>> main
 export function DetailsPanel() {
   const selectedNode = usePraxisStore((state) => state.selectedNode);
 
@@ -65,9 +69,12 @@ export function DetailsPanel() {
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
 >>>>>>> main
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 >>>>>>> main
 >>>>>>> main
     <Panel className="h-full space-y-3 p-4">
@@ -155,6 +162,7 @@ export function DetailsPanel() {
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main

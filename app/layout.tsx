@@ -5,9 +5,12 @@ import type { Metadata } from "next";
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
 >>>>>>> main
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 >>>>>>> main
 >>>>>>> main
 import { Inter } from "next/font/google";
@@ -38,6 +41,7 @@ export const metadata: Metadata = {
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
+>>>>>>> main
 };
 
 export default function RootLayout({
@@ -52,9 +56,12 @@ export default function RootLayout({
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
 >>>>>>> main
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 >>>>>>> main
 >>>>>>> main
     <html lang="en" className="dark">
@@ -78,6 +85,7 @@ export default function RootLayout({
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main

@@ -16,6 +16,7 @@ const navItems = [
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
+>>>>>>> main
   { href: "/dashboard", label: "Dashboard" },
   { href: "/upload", label: "Upload" },
   { href: "/repo", label: "Repository" },
@@ -29,9 +30,12 @@ export function Navbar() {
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
 >>>>>>> main
+=======
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-xj8r91
 >>>>>>> main
 >>>>>>> main
     <header className="sticky top-0 z-20 border-b border-slate-800/80 bg-bg/80 backdrop-blur-xl">
@@ -64,6 +68,7 @@ export function Navbar() {
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
