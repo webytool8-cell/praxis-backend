@@ -1,18 +1,65 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+<<<<<<< HEAD
   darkMode: ["class"],
+=======
+<<<<<<< HEAD
+  darkMode: ["class"],
+=======
+<<<<<<< HEAD
+  darkMode: ["class"],
+=======
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./views/**/*.{js,ts,jsx,tsx,mdx}",
+<<<<<<< HEAD
     "./dashboard/**/*.{js,ts,jsx,tsx,mdx}",
     "./forms/**/*.{js,ts,jsx,tsx,mdx}",
     "./store/**/*.{js,ts,jsx,tsx,mdx}",
+=======
+<<<<<<< HEAD
+    "./dashboard/**/*.{js,ts,jsx,tsx,mdx}",
+    "./forms/**/*.{js,ts,jsx,tsx,mdx}",
+    "./store/**/*.{js,ts,jsx,tsx,mdx}",
+=======
+<<<<<<< HEAD
+    "./dashboard/**/*.{js,ts,jsx,tsx,mdx}",
+    "./forms/**/*.{js,ts,jsx,tsx,mdx}",
+    "./store/**/*.{js,ts,jsx,tsx,mdx}",
+=======
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
   ],
   theme: {
     extend: {
       colors: {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
         bg: "#0B0F14",
         panel: "#101722",
         muted: "#8A95A8",
@@ -41,6 +88,20 @@ const config: Config = {
           from: { opacity: "0", transform: "translateY(6px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+        brand: "#2A63F6",
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
       },
     },
   },
