@@ -1,18 +1,51 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+<<<<<<< HEAD
   darkMode: ["class"],
+=======
+<<<<<<< HEAD
+  darkMode: ["class"],
+=======
+<<<<<<< HEAD
+  darkMode: ["class"],
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./views/**/*.{js,ts,jsx,tsx,mdx}",
+<<<<<<< HEAD
     "./dashboard/**/*.{js,ts,jsx,tsx,mdx}",
     "./forms/**/*.{js,ts,jsx,tsx,mdx}",
     "./store/**/*.{js,ts,jsx,tsx,mdx}",
+=======
+<<<<<<< HEAD
+    "./dashboard/**/*.{js,ts,jsx,tsx,mdx}",
+    "./forms/**/*.{js,ts,jsx,tsx,mdx}",
+    "./store/**/*.{js,ts,jsx,tsx,mdx}",
+=======
+<<<<<<< HEAD
+    "./dashboard/**/*.{js,ts,jsx,tsx,mdx}",
+    "./forms/**/*.{js,ts,jsx,tsx,mdx}",
+    "./store/**/*.{js,ts,jsx,tsx,mdx}",
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
   ],
   theme: {
     extend: {
       colors: {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
+>>>>>>> main
         bg: "#0B0F14",
         panel: "#101722",
         muted: "#8A95A8",
@@ -41,6 +74,15 @@ const config: Config = {
           from: { opacity: "0", transform: "translateY(6px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+        brand: "#2A63F6",
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
       },
     },
   },
