@@ -1,6 +1,10 @@
 "use client";
 
 import { create } from "zustand";
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 import { GraphNodeDetails, ViewTemplate } from "@/types/graph";
 
 interface PraxisState {
@@ -16,10 +20,24 @@ interface PraxisState {
   setHeatmapMode: (enabled: boolean) => void;
   toggleCluster: () => void;
   setAnalyzing: (value: boolean) => void;
+<<<<<<< HEAD
+=======
+=======
+import { GraphNodeDetails } from "@/types/graph";
+
+interface PraxisState {
+  selectedNode: GraphNodeDetails | null;
+  setSelectedNode: (node: GraphNodeDetails | null) => void;
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 }
 
 export const usePraxisStore = create<PraxisState>((set) => ({
   selectedNode: null,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
   hoveredNodeId: null,
   template: "architecture",
   heatmapMode: false,
@@ -31,4 +49,10 @@ export const usePraxisStore = create<PraxisState>((set) => ({
   setHeatmapMode: (enabled) => set({ heatmapMode: enabled }),
   toggleCluster: () => set((state) => ({ clusterExpanded: !state.clusterExpanded })),
   setAnalyzing: (value) => set({ isAnalyzing: value }),
+<<<<<<< HEAD
+=======
+=======
+  setSelectedNode: (node) => set({ selectedNode: node }),
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 }));
