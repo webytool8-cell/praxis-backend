@@ -3,6 +3,10 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
 import { useEffect, useMemo, useState } from "react";
 import ReactFlow, {
@@ -206,6 +210,11 @@ export function GraphViewport() {
         <Controls />
       </ReactFlow>
     </section>
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
   );

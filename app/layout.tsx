@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -21,6 +25,11 @@ import { Navbar } from "@/components/layout/Navbar";
 export const metadata: Metadata = {
   title: "PRAXIS",
   description: "Visual system maps for repositories and project files.",
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 };
@@ -34,6 +43,10 @@ export default function RootLayout({
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
     <html lang="en" className="dark">
       <body className={`${inter.className} bg-aurora min-h-screen`}>
@@ -50,6 +63,11 @@ export default function RootLayout({
       <body>
         <Navbar />
         <main className="mx-auto min-h-[calc(100vh-4rem)] max-w-7xl px-4 py-6 md:px-6">
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
           {children}

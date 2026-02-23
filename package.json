@@ -24,6 +24,11 @@
     "html-to-image": "1.11.11"
 =======
     "zustand": "4.5.4"
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
   },
@@ -43,6 +48,10 @@
   "engines": {
     "node": "20.x"
 =======
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
   }
 }

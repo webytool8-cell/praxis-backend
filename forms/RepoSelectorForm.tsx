@@ -9,6 +9,11 @@ import { Panel } from "@/components/ui/Panel";
 <<<<<<< HEAD
 import { Panel } from "@/components/ui/Panel";
 =======
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 
@@ -18,6 +23,10 @@ export function RepoSelectorForm() {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
     // TODO: Trigger GitHub OAuth and repository discovery APIs from PRAXIS backend.
   };
@@ -57,6 +66,11 @@ export function RepoSelectorForm() {
       </div>
       {/* TODO: Populate repository dropdown and OAuth status from backend auth/session APIs. */}
     </form>
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
   );

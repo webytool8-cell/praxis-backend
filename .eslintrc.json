@@ -6,6 +6,11 @@
   "extends": ["next/core-web-vitals"]
 =======
   "extends": ["next/core-web-vitals", "next/typescript"]
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 }

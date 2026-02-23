@@ -6,6 +6,11 @@ const navItems = [
 <<<<<<< HEAD
 =======
   { href: "/", label: "Home" },
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
   { href: "/dashboard", label: "Dashboard" },
@@ -18,6 +23,10 @@ export function Navbar() {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
     <header className="sticky top-0 z-20 border-b border-slate-800/80 bg-bg/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-[1500px] items-center justify-between px-4 md:px-6">
@@ -43,6 +52,11 @@ export function Navbar() {
         <nav className="flex items-center gap-4 text-sm font-medium text-slate-700">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href} className="hover:text-brand">
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
               {item.label}

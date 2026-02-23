@@ -5,6 +5,11 @@ import { Panel } from "@/components/ui/Panel";
 <<<<<<< HEAD
 import { Panel } from "@/components/ui/Panel";
 =======
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 
@@ -31,6 +36,11 @@ export function Sidebar() {
         Dashboard
       </h2>
       <ul className="space-y-2">
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
         {dashboardLinks.map((link) => (
@@ -44,6 +54,11 @@ export function Sidebar() {
               className="block rounded-lg px-3 py-2 text-sm text-slate-300 transition duration-300 hover:bg-slate-800/70 hover:text-white"
 =======
               className="block rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-slate-100"
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
             >
@@ -59,6 +74,11 @@ export function Sidebar() {
     </Panel>
 =======
     </aside>
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
   );
