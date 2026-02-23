@@ -1,0 +1,4 @@
+# Keep Vercel build context clean of local/editor artifacts
+.git
+.gitignore
+.DS_Store
