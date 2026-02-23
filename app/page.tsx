@@ -1,24 +1,26 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
 import { Panel } from "@/components/ui/Panel";
+import { Button } from "@/components/ui/Button";
 
 export default function LandingPage() {
   return (
-    <Panel className="mx-auto max-w-4xl p-10 md:p-14">
-      <p className="text-xs uppercase tracking-[0.25em] text-muted">Developer System Intelligence</p>
-      <h1 className="mt-3 text-4xl font-semibold tracking-tight text-white md:text-5xl">PRAXIS</h1>
-      <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300 md:text-lg">
-        Upload a project or connect GitHub to generate an interactive, risk-aware system map with
-        architecture, data-flow, and dependency layers.
-      </p>
-      <div className="mt-8 flex gap-3">
-        <Link href="/dashboard">
-          <Button>Open Dashboard</Button>
-        </Link>
-        <Link href="/repo">
-          <Button variant="secondary">Connect GitHub</Button>
-        </Link>
-      </div>
-    </Panel>
+    <section className="mx-auto grid max-w-6xl gap-6 md:grid-cols-[1.2fr_1fr]">
+      <Panel className="p-10">
+        <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
+          Understand your system in one glance.
+        </h1>
+        <p className="mt-4 text-base text-text1">
+          Repo → Map → Insights → PDF report. PRAXIS generates an interactive system map for
+          architecture, dependencies, data flow, and risk.
+        </p>
+        <div className="mt-7 flex gap-3">
+          <Link href="/repo"><Button variant="primary">Connect GitHub</Button></Link>
+          <Link href="/upload"><Button variant="secondary">Upload Project</Button></Link>
+        </div>
+      </Panel>
+      <Panel className="grid place-items-center p-6">
+        <div className="h-72 w-full rounded-2xl border border-[rgb(var(--line-1))] bg-[rgb(var(--bg-2))]/50" />
+      </Panel>
+    </section>
   );
 }

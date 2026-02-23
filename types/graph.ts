@@ -1,16 +1,19 @@
-export type ViewTemplate = "architecture" | "dataFlow" | "dependency" | "risk";
-export type NodeKind = "api" | "db" | "frontend" | "service";
+export type NodeType = "frontend" | "api" | "service" | "db" | "infra" | "external" | "file";
+export type Template = "architecture" | "dependencies" | "dataflow" | "risk";
 
-export interface GraphNodeDetails {
+export interface NodeMetrics {
+  loc: number;
+  imports: number;
+  fanIn: number;
+  fanOut: number;
+  risk: number;
+}
+
+export interface GraphNodeData {
   id: string;
-  name: string;
-  type: NodeKind;
-  description: string;
-  dependencies: string[];
-  metrics: {
-    loc: number;
-    imports: number;
-    complexity: number;
-  };
-  riskScore: number;
+  label: string;
+  type: NodeType;
+  path: string;
+  metrics: NodeMetrics;
+  tags: string[];
 }

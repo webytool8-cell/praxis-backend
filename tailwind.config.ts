@@ -5,42 +5,35 @@ const config: Config = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./views/**/*.{js,ts,jsx,tsx,mdx}",
     "./dashboard/**/*.{js,ts,jsx,tsx,mdx}",
     "./forms/**/*.{js,ts,jsx,tsx,mdx}",
-    "./store/**/*.{js,ts,jsx,tsx,mdx}",
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}",
+    "./views/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        bg: "#0B0F14",
-        panel: "#101722",
-        muted: "#8A95A8",
-        accent: "#5B8CFF",
-        accentViolet: "#8B5CF6",
+        bg0: "rgb(var(--bg-0))",
+        bg1: "rgb(var(--bg-1))",
+        bg2: "rgb(var(--bg-2))",
+        text0: "rgb(var(--text-0))",
+        text1: "rgb(var(--text-1))",
+        text2: "rgb(var(--text-2))",
+        acc0: "rgb(var(--acc-0))",
+        acc1: "rgb(var(--acc-1))",
       },
       boxShadow: {
-        soft: "0 10px 30px rgba(0, 0, 0, 0.35)",
-        glow: "0 0 0 1px rgba(91,140,255,.3), 0 0 20px rgba(91,140,255,.25)",
-      },
-      animation: {
-        float: "float 9s ease-in-out infinite",
-        pulseSlow: "pulseSlow 2.8s ease-in-out infinite",
-        fadeIn: "fadeIn .3s ease-in-out",
+        soft: "0 10px 30px rgba(0, 0, 0, 0.3)",
+        glow: "0 0 0 2px rgba(110,168,255,.18), 0 0 24px rgba(110,168,255,.2)",
       },
       keyframes: {
-        float: {
-          "0%,100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        pulseSlow: {
-          "0%,100%": { opacity: "0.55" },
-          "50%": { opacity: "1" },
-        },
-        fadeIn: {
-          from: { opacity: "0", transform: "translateY(6px)" },
+        fadeUp: {
+          from: { opacity: "0", transform: "translateY(8px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+      },
+      animation: {
+        fadeUp: "fadeUp 260ms ease-out",
       },
     },
   },

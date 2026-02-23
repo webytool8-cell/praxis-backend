@@ -1,18 +1,22 @@
 import { InputHTMLAttributes } from "react";
+import { cn } from "@/lib/theme/cn";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
 }
 
-export function Input({ label, id, className = "", ...props }: InputProps) {
-  const inputId = id ?? label.toLowerCase().replace(/\s+/g, "-");
+export function Input({ label, className, id, ...props }: Props) {
+  const inputId = id ?? label?.toLowerCase().replace(/\s+/g, "-");
 
   return (
-    <label className="block space-y-2 text-sm font-medium text-slate-300" htmlFor={inputId}>
-      <span>{label}</span>
+    <label className="block space-y-2 text-sm text-text1" htmlFor={inputId}>
+      {label ? <span>{label}</span> : null}
       <input
         id={inputId}
-        className={`w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-2.5 text-slate-100 outline-none transition duration-300 placeholder:text-slate-500 focus:border-accent focus:ring-2 focus:ring-accent/30 ${className}`}
+        className={cn(
+          "w-full rounded-xl border border-[rgb(var(--line-1))] bg-[rgb(var(--bg-1))]/70 px-3 py-2.5 text-sm text-text0 outline-none transition duration-200 placeholder:text-text2 focus:border-[rgb(var(--acc-0))] focus:ring-2 focus:ring-[rgb(var(--acc-0))]/30",
+          className,
+        )}
         {...props}
       />
     </label>

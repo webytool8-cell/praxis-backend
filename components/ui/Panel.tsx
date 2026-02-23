@@ -1,13 +1,10 @@
 import { PropsWithChildren } from "react";
+import { cn } from "@/lib/theme/cn";
 
-interface PanelProps extends PropsWithChildren {
+interface Props extends PropsWithChildren {
   className?: string;
 }
 
-export function Panel({ className = "", children }: PanelProps) {
-  return (
-    <section className={`glass-panel rounded-xl border border-slate-800/80 shadow-soft ${className}`}>
-      {children}
-    </section>
-  );
+export function Panel({ className, children }: Props) {
+  return <section className={cn("glass-panel rounded-2xl border border-[rgb(var(--line-1))] shadow-soft", className)}>{children}</section>;
 }

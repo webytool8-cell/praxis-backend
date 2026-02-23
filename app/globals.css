@@ -4,33 +4,48 @@
 
 :root {
   color-scheme: dark;
+  --bg-0: 10 14 20;
+  --bg-1: 13 18 26;
+  --bg-2: 17 24 35;
+
+  --line-0: 255 255 255 / 0.06;
+  --line-1: 255 255 255 / 0.1;
+
+  --text-0: 245 247 250;
+  --text-1: 197 205 214;
+  --text-2: 146 156 168;
+
+  --acc-0: 110 168 255;
+  --acc-1: 168 120 255;
+
+  --ok: 92 255 192;
+  --warn: 255 214 102;
+  --bad: 255 104 104;
 }
 
 * {
-  @apply border-slate-800;
+  @apply border-[rgb(var(--line-0))];
 }
 
 body {
-  @apply bg-bg text-slate-100 antialiased;
+  @apply min-h-screen bg-[rgb(var(--bg-0))] text-[rgb(var(--text-0))] antialiased;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-}
-
-.bg-aurora {
-  background:
-    radial-gradient(45rem 45rem at 10% -10%, rgba(91, 140, 255, 0.22), transparent 55%),
-    radial-gradient(35rem 35rem at 90% 0%, rgba(139, 92, 246, 0.16), transparent 58%),
-    linear-gradient(180deg, #0b0f14 0%, #0b0f14 45%, #0d1320 100%);
+  background-image:
+    radial-gradient(900px circle at 20% 10%, rgba(var(--acc-0), 0.12), transparent 55%),
+    radial-gradient(700px circle at 80% 20%, rgba(var(--acc-1), 0.1), transparent 60%),
+    linear-gradient(180deg, rgb(var(--bg-0)) 0%, rgb(var(--bg-1)) 100%);
 }
 
 .glass-panel {
-  background: linear-gradient(180deg, rgba(20, 28, 40, 0.75), rgba(12, 18, 29, 0.72));
-  backdrop-filter: blur(8px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  backdrop-filter: blur(10px);
 }
 
 .react-flow__attribution {
   display: none;
 }
 
-.react-flow__controls {
-  @apply rounded-lg border border-slate-700 bg-slate-900/70 shadow-soft;
+.react-flow__controls,
+.react-flow__minimap {
+  @apply rounded-xl border border-[rgb(var(--line-1))] bg-[rgb(var(--bg-1))]/80 shadow-soft;
 }
