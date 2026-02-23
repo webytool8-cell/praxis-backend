@@ -13,9 +13,13 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "reactflow": "11.11.4",
+<<<<<<< HEAD
     "zustand": "4.5.4",
     "jspdf": "2.5.2",
     "html-to-image": "1.11.11"
+=======
+    "zustand": "4.5.4"
+>>>>>>> main
   },
   "devDependencies": {
     "@types/node": "20.14.12",
