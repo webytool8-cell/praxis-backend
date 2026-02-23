@@ -113,6 +113,20 @@ git commit -m "Resolve merge conflicts safely"
 git push
 ```
 
+
+### Resolve the known 22-file conflict set automatically
+
+If GitHub reports conflicts in the common 22-file set, run:
+
+```bash
+bash scripts/resolve-conflicts.sh
+```
+
+This script prefers current-branch content for those files, stages them, then runs:
+
+- `npm run validate:merge`
+- `node scripts/validate-config.mjs`
+
 ## Notes
 
 - Graph data and insights are placeholder data for now.
