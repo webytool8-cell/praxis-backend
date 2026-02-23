@@ -1,5 +1,6 @@
 "use client";
 
+<<<<<<< HEAD
 import { useState } from "react";
 import { Panel } from "@/components/ui/Panel";
 import { usePraxisStore } from "@/store/usePraxisStore";
@@ -29,10 +30,15 @@ function Section({
   );
 }
 
+=======
+import { usePraxisStore } from "@/store/usePraxisStore";
+
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
 export function DetailsPanel() {
   const selectedNode = usePraxisStore((state) => state.selectedNode);
 
   return (
+<<<<<<< HEAD
     <Panel className="h-full space-y-3 p-4">
       <div>
         <p className="text-xs uppercase tracking-[0.18em] text-muted">Details</p>
@@ -83,5 +89,33 @@ export function DetailsPanel() {
 
       {/* TODO: Expand this panel with backend AI-generated remediation actions and architecture notes. */}
     </Panel>
+=======
+    <section className="h-full rounded-lg border border-slate-200 bg-white p-4">
+      <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">
+        Node Details
+      </h3>
+      {selectedNode ? (
+        <dl className="space-y-2 text-sm text-slate-700">
+          <div>
+            <dt className="font-semibold">Name</dt>
+            <dd>{selectedNode.name}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold">Type</dt>
+            <dd>{selectedNode.type}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold">Summary</dt>
+            <dd>{selectedNode.summary}</dd>
+          </div>
+        </dl>
+      ) : (
+        <p className="text-sm text-slate-500">
+          Select a node in the graph to inspect module metadata.
+        </p>
+      )}
+      {/* TODO: Inject deeper module insights from the PRAXIS analysis endpoint. */}
+    </section>
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
   );
 }

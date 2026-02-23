@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
   "extends": ["next/core-web-vitals"]
+=======
+  "extends": ["next/core-web-vitals", "next/typescript"]
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
 }
