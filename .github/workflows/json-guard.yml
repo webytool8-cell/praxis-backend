@@ -1,17 +1,13 @@
-name: JSON Guard
+name: Merge Safety Guard
 
 on:
   pull_request:
   push:
-<<<<<<< HEAD
     branches: ['**']
   workflow_dispatch:
-=======
-    branches: [main]
->>>>>>> main
 
 jobs:
-  validate-config-json:
+  validate-merge-state:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,5 +18,5 @@ jobs:
         with:
           node-version: 20
 
-      - name: Validate critical JSON configs
-        run: node scripts/validate-config.mjs
+      - name: Validate merge state and JSON configs
+        run: npm run validate:merge

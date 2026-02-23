@@ -1,29 +1,6 @@
-<<<<<<< HEAD
 # PRAXIS Frontend
 
 Dark, minimalist Next.js App Router frontend for PRAXIS system visualization.
-=======
-<<<<<<< HEAD
-# PRAXIS Frontend
-
-Dark, minimalist Next.js App Router frontend for PRAXIS system visualization.
-=======
-<<<<<<< HEAD
-# PRAXIS Frontend
-
-Dark, minimalist Next.js App Router frontend for PRAXIS system visualization.
-=======
-# PRAXIS Frontend (Initial Scaffold)
-
-Next.js App Router frontend scaffold for PRAXIS.
-<<<<<<< HEAD
->>>>>>> codex/generate-next.js-project-structure-for-praxis
->>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
-=======
->>>>>>> main
->>>>>>> main
->>>>>>> main
->>>>>>> main
 
 ## Run locally
 
@@ -32,17 +9,6 @@ npm install
 npm run dev
 ```
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
-=======
->>>>>>> main
->>>>>>> main
->>>>>>> main
 ## Core structure
 
 - `app/` routes and layout shell
@@ -62,13 +28,6 @@ npm run dev
    - Build Command: `npm run build`
    - Output Directory: default/empty (not `public`)
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> main
->>>>>>> main
 ## Troubleshooting build failures
 
 ### `SyntaxError ... package.json: Expected double-quoted property name`
@@ -85,36 +44,11 @@ rg -n "^(<<<<<<<|=======|>>>>>>>)" package.json
 If conflicts are present, remove markers and keep one valid JSON shape only (no comments/trailing commas).
 
 ### Conflict cleanup for branch merges
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-## Conflict-resolution workflow (GitHub web editor + CLI)
-
-If GitHub says this branch has conflicts, resolve them before merging:
-
-### Option A: GitHub web editor
-
-1. Open the PR and click **Resolve conflicts**.
-2. For each conflicted file, keep the newer dark-dashboard implementation unless you intentionally need older content.
-3. Remove all conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`).
-4. Mark as resolved and commit merge.
-
-### Option B: command line
->>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
-=======
->>>>>>> main
->>>>>>> main
 
 ```bash
 git fetch origin
 git merge origin/main
 # or: git rebase origin/main
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> main
 rg -n "^(<<<<<<<|=======|>>>>>>>)" .
 ```
 
@@ -133,16 +67,12 @@ git add package.json .eslintrc.json vercel.json
 
 ### CI guard for merge-related JSON breakage
 
-A GitHub Actions workflow (`JSON Guard`) now validates that `package.json`, `.eslintrc.json`, and `vercel.json`:
-
-- contain no conflict markers
-- parse as strict JSON
+A GitHub Actions workflow (`Merge Safety Guard`) now validates the whole repository state by failing on merge markers in source/config files and strict-JSON parsing for every `.json` file.
 
 You can run the same check locally:
 
 ```bash
-node scripts/validate-config.mjs
-<<<<<<< HEAD
+npm run validate:merge
 ```
 
 
@@ -183,66 +113,21 @@ git commit -m "Resolve merge conflicts safely"
 git push
 ```
 
-=======
-=======
-```
 
-Then edit each conflicted file, remove conflict markers, and finish with:
+### Resolve the known 22-file conflict set automatically
 
-```bash
-git add .
-git commit
-# if rebasing: git rebase --continue
-```
-
-Validation commands:
+If GitHub reports conflicts in the common 22-file set, run:
 
 ```bash
-rg -n "^(<<<<<<<|=======|>>>>>>>)" .
-git status
->>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+bash scripts/resolve-conflicts.sh
 ```
 
-=======
-rg -n "^(<<<<<<<|=======|>>>>>>>)" .
-```
+This script prefers current-branch content for those files, stages them, then runs:
 
->>>>>>> main
->>>>>>> main
+- `npm run validate:merge`
+- `node scripts/validate-config.mjs`
+
 ## Notes
 
 - Graph data and insights are placeholder data for now.
 - TODO comments mark backend AI analysis integration points.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
-## Deploy with GitHub + Vercel (online-only workflow)
-
-1. Push this branch/repo to GitHub.
-2. In Vercel, click **Add New → Project** and import your GitHub repository.
-3. Keep defaults for a Next.js app:
-   - Install Command: `npm install`
-   - Build Command: `npm run build`
-   - Output: `.next` (auto)
-4. Add environment variables in Vercel Project Settings if needed.
-5. Deploy.
-
-### Important build note
-
-Vercel does **not** support `next.config.ts` in this setup. This project uses `next.config.mjs` for compatibility.
-
-## Notes
-
-- Tailwind CSS is configured for utility-first styling.
-- Zustand holds placeholder graph-node selection state.
-- API integration points are marked with TODO comments.
-<<<<<<< HEAD
->>>>>>> codex/generate-next.js-project-structure-for-praxis
->>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
-=======
->>>>>>> main
->>>>>>> main
->>>>>>> main
->>>>>>> main
