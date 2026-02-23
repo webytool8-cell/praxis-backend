@@ -3,9 +3,12 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 import { useState } from "react";
@@ -39,6 +42,8 @@ function Section({
 
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
 import { usePraxisStore } from "@/store/usePraxisStore";
 
@@ -49,6 +54,7 @@ import { usePraxisStore } from "@/store/usePraxisStore";
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
+>>>>>>> main
 export function DetailsPanel() {
   const selectedNode = usePraxisStore((state) => state.selectedNode);
 
@@ -56,9 +62,12 @@ export function DetailsPanel() {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
     <Panel className="h-full space-y-3 p-4">
@@ -113,6 +122,8 @@ export function DetailsPanel() {
     </Panel>
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
     <section className="h-full rounded-lg border border-slate-200 bg-white p-4">
       <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">
@@ -144,6 +155,7 @@ export function DetailsPanel() {
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main

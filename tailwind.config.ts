@@ -8,9 +8,13 @@ const config: Config = {
   darkMode: ["class"],
 =======
 <<<<<<< HEAD
+  darkMode: ["class"],
+=======
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
@@ -29,9 +33,15 @@ const config: Config = {
     "./store/**/*.{js,ts,jsx,tsx,mdx}",
 =======
 <<<<<<< HEAD
+    "./dashboard/**/*.{js,ts,jsx,tsx,mdx}",
+    "./forms/**/*.{js,ts,jsx,tsx,mdx}",
+    "./store/**/*.{js,ts,jsx,tsx,mdx}",
+=======
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
@@ -42,9 +52,12 @@ const config: Config = {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
         bg: "#0B0F14",
@@ -77,12 +90,15 @@ const config: Config = {
         },
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
         brand: "#2A63F6",
 <<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main

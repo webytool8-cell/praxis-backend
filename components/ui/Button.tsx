@@ -6,11 +6,15 @@ type ButtonVariant = "primary" | "secondary" | "ghost";
 <<<<<<< HEAD
 type ButtonVariant = "primary" | "secondary" | "ghost";
 =======
+<<<<<<< HEAD
+type ButtonVariant = "primary" | "secondary" | "ghost";
+=======
 type ButtonVariant = "primary" | "secondary";
 <<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
@@ -23,9 +27,12 @@ export function Button({ variant = "primary", className = "", ...props }: Button
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
   const base =
@@ -38,6 +45,8 @@ export function Button({ variant = "primary", className = "", ...props }: Button
     ghost: "text-slate-300 hover:bg-slate-800/70 hover:text-white",
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
   const base = "rounded-md px-4 py-2 text-sm font-semibold transition";
   const variants: Record<ButtonVariant, string> = {
@@ -47,6 +56,7 @@ export function Button({ variant = "primary", className = "", ...props }: Button
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main

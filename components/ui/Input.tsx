@@ -11,9 +11,12 @@ export function Input({ label, id, className = "", ...props }: InputProps) {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
     <label className="block space-y-2 text-sm font-medium text-slate-300" htmlFor={inputId}>
@@ -21,6 +24,8 @@ export function Input({ label, id, className = "", ...props }: InputProps) {
       <input
         id={inputId}
         className={`w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-2.5 text-slate-100 outline-none transition duration-300 placeholder:text-slate-500 focus:border-accent focus:ring-2 focus:ring-accent/30 ${className}`}
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 =======
@@ -33,6 +38,7 @@ export function Input({ label, id, className = "", ...props }: InputProps) {
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 =======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 >>>>>>> main
