@@ -5,7 +5,11 @@
 <<<<<<< HEAD
   "extends": ["next/core-web-vitals"]
 =======
+<<<<<<< HEAD
+  "extends": ["next/core-web-vitals"]
+=======
   "extends": ["next/core-web-vitals", "next/typescript"]
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 }

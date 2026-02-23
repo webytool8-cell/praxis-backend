@@ -13,7 +13,11 @@ export function DashboardView() {
 <<<<<<< HEAD
       <section className="grid gap-4 xl:grid-cols-[280px_1fr_320px]">
 =======
+<<<<<<< HEAD
+      <section className="grid gap-4 xl:grid-cols-[280px_1fr_320px]">
+=======
       <section className="grid gap-4 xl:grid-cols-[280px_1fr_300px]">
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
         <ControlsPanel />

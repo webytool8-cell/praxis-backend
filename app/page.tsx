@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/Button";
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 >>>>>>> main
 import { Panel } from "@/components/ui/Panel";
 
@@ -26,6 +29,8 @@ export default function LandingPage() {
     </Panel>
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
 
 export default function LandingPage() {
@@ -40,6 +45,7 @@ export default function LandingPage() {
         <Button>Get Started</Button>
       </Link>
     </section>
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
   );

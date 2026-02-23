@@ -3,6 +3,9 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 >>>>>>> main
 import { useEffect, useMemo, useState } from "react";
 import ReactFlow, {
@@ -146,6 +149,8 @@ export function GraphViewport() {
     </Panel>
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
 import { useMemo } from "react";
 import ReactFlow, { Background, Controls, Edge, Node } from "reactflow";
@@ -206,6 +211,7 @@ export function GraphViewport() {
         <Controls />
       </ReactFlow>
     </section>
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
   );

@@ -4,6 +4,9 @@ import { create } from "zustand";
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 >>>>>>> main
 import { GraphNodeDetails, ViewTemplate } from "@/types/graph";
 
@@ -22,12 +25,15 @@ interface PraxisState {
   setAnalyzing: (value: boolean) => void;
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
 import { GraphNodeDetails } from "@/types/graph";
 
 interface PraxisState {
   selectedNode: GraphNodeDetails | null;
   setSelectedNode: (node: GraphNodeDetails | null) => void;
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 }
@@ -37,6 +43,9 @@ export const usePraxisStore = create<PraxisState>((set) => ({
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 >>>>>>> main
   hoveredNodeId: null,
   template: "architecture",
@@ -51,8 +60,11 @@ export const usePraxisStore = create<PraxisState>((set) => ({
   setAnalyzing: (value) => set({ isAnalyzing: value }),
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
   setSelectedNode: (node) => set({ selectedNode: node }),
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 }));

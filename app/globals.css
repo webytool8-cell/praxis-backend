@@ -6,6 +6,9 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 >>>>>>> main
   color-scheme: dark;
 }
@@ -39,12 +42,15 @@ body {
   @apply rounded-lg border border-slate-700 bg-slate-900/70 shadow-soft;
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
   color-scheme: light;
 }
 
 body {
   @apply bg-slate-100 text-slate-900;
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 }

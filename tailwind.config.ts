@@ -7,6 +7,10 @@ const config: Config = {
 <<<<<<< HEAD
   darkMode: ["class"],
 =======
+<<<<<<< HEAD
+  darkMode: ["class"],
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
   content: [
@@ -23,6 +27,12 @@ const config: Config = {
     "./forms/**/*.{js,ts,jsx,tsx,mdx}",
     "./store/**/*.{js,ts,jsx,tsx,mdx}",
 =======
+<<<<<<< HEAD
+    "./dashboard/**/*.{js,ts,jsx,tsx,mdx}",
+    "./forms/**/*.{js,ts,jsx,tsx,mdx}",
+    "./store/**/*.{js,ts,jsx,tsx,mdx}",
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
   ],
@@ -32,6 +42,9 @@ const config: Config = {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 >>>>>>> main
         bg: "#0B0F14",
         panel: "#101722",
@@ -63,8 +76,11 @@ const config: Config = {
         },
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
         brand: "#2A63F6",
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
       },

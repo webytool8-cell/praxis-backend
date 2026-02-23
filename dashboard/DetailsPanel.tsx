@@ -3,6 +3,9 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 >>>>>>> main
 import { useState } from "react";
 import { Panel } from "@/components/ui/Panel";
@@ -35,9 +38,12 @@ function Section({
 
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
 import { usePraxisStore } from "@/store/usePraxisStore";
 
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 export function DetailsPanel() {
@@ -47,6 +53,9 @@ export function DetailsPanel() {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 >>>>>>> main
     <Panel className="h-full space-y-3 p-4">
       <div>
@@ -100,6 +109,8 @@ export function DetailsPanel() {
     </Panel>
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
     <section className="h-full rounded-lg border border-slate-200 bg-white p-4">
       <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">
@@ -127,6 +138,7 @@ export function DetailsPanel() {
       )}
       {/* TODO: Inject deeper module insights from the PRAXIS analysis endpoint. */}
     </section>
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
   );

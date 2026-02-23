@@ -1,0 +1,4 @@
+# Prevent malformed JSON during conflict resolution by preferring current branch for fragile config files
+package.json merge=ours
+.eslintrc.json merge=ours
+vercel.json merge=ours

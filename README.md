@@ -8,9 +8,15 @@ Dark, minimalist Next.js App Router frontend for PRAXIS system visualization.
 
 Dark, minimalist Next.js App Router frontend for PRAXIS system visualization.
 =======
+<<<<<<< HEAD
+# PRAXIS Frontend
+
+Dark, minimalist Next.js App Router frontend for PRAXIS system visualization.
+=======
 # PRAXIS Frontend (Initial Scaffold)
 
 Next.js App Router frontend scaffold for PRAXIS.
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 
@@ -24,6 +30,9 @@ npm run dev
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 >>>>>>> main
 ## Core structure
 
@@ -68,10 +77,27 @@ git merge origin/main
 rg -n "^(<<<<<<<|=======|>>>>>>>)" .
 ```
 
+<<<<<<< HEAD
+
+### Prevent recurring merge corruption
+
+To avoid re-introducing malformed `package.json` during future merges, this repo uses `.gitattributes` to prefer the current branch version for high-risk JSON config files (`package.json`, `.eslintrc.json`, `vercel.json`).
+
+If you need the other side explicitly, override with:
+
+```bash
+git checkout --theirs package.json .eslintrc.json vercel.json
+git add package.json .eslintrc.json vercel.json
+```
+
+=======
+>>>>>>> main
 ## Notes
 
 - Graph data and insights are placeholder data for now.
 - TODO comments mark backend AI analysis integration points.
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 =======
@@ -95,5 +121,6 @@ Vercel does **not** support `next.config.ts` in this setup. This project uses `n
 - Tailwind CSS is configured for utility-first styling.
 - Zustand holds placeholder graph-node selection state.
 - API integration points are marked with TODO comments.
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main

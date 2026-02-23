@@ -1,6 +1,9 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 >>>>>>> main
 "use client";
 
@@ -91,6 +94,8 @@ export function ControlsPanel() {
     </Panel>
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 =======
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
@@ -120,6 +125,7 @@ export function ControlsPanel() {
         </Button>
       </div>
     </section>
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
   );
