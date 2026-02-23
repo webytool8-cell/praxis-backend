@@ -3,7 +3,11 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
 import { useState } from "react";
 import { Panel } from "@/components/ui/Panel";
 import { usePraxisStore } from "@/store/usePraxisStore";
@@ -38,8 +42,13 @@ function Section({
 =======
 import { usePraxisStore } from "@/store/usePraxisStore";
 
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
 export function DetailsPanel() {
   const selectedNode = usePraxisStore((state) => state.selectedNode);
 
@@ -47,7 +56,11 @@ export function DetailsPanel() {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
     <Panel className="h-full space-y-3 p-4">
       <div>
         <p className="text-xs uppercase tracking-[0.18em] text-muted">Details</p>
@@ -127,7 +140,12 @@ export function DetailsPanel() {
       )}
       {/* TODO: Inject deeper module insights from the PRAXIS analysis endpoint. */}
     </section>
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
   );
 }

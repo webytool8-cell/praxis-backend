@@ -11,8 +11,13 @@ Dark, minimalist Next.js App Router frontend for PRAXIS system visualization.
 # PRAXIS Frontend (Initial Scaffold)
 
 Next.js App Router frontend scaffold for PRAXIS.
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
 
 ## Run locally
 
@@ -24,7 +29,11 @@ npm run dev
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
 ## Core structure
 
 - `app/` routes and layout shell
@@ -45,6 +54,9 @@ npm run dev
    - Output Directory: default/empty (not `public`)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 ## Troubleshooting build failures
 
 ### `SyntaxError ... package.json: Expected double-quoted property name`
@@ -61,6 +73,7 @@ rg -n "^(<<<<<<<|=======|>>>>>>>)" package.json
 If conflicts are present, remove markers and keep one valid JSON shape only (no comments/trailing commas).
 
 ### Conflict cleanup for branch merges
+<<<<<<< HEAD
 =======
 ## Conflict-resolution workflow (GitHub web editor + CLI)
 
@@ -75,11 +88,14 @@ If GitHub says this branch has conflicts, resolve them before merging:
 
 ### Option B: command line
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
 
 ```bash
 git fetch origin
 git merge origin/main
 # or: git rebase origin/main
+<<<<<<< HEAD
 <<<<<<< HEAD
 rg -n "^(<<<<<<<|=======|>>>>>>>)" .
 ```
@@ -127,6 +143,11 @@ git status
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
 ```
 
+=======
+rg -n "^(<<<<<<<|=======|>>>>>>>)" .
+```
+
+>>>>>>> main
 ## Notes
 
 - Graph data and insights are placeholder data for now.
@@ -154,5 +175,10 @@ Vercel does **not** support `next.config.ts` in this setup. This project uses `n
 - Tailwind CSS is configured for utility-first styling.
 - Zustand holds placeholder graph-node selection state.
 - API integration points are marked with TODO comments.
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main

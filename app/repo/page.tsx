@@ -15,8 +15,13 @@ export default function RepoPage() {
       <p className="text-sm text-slate-600">
         Authenticate with GitHub and select a repository to analyze.
       </p>
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
       <RepoSelectorForm />
     </section>
   );

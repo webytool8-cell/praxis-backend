@@ -9,8 +9,13 @@ import { Panel } from "@/components/ui/Panel";
 <<<<<<< HEAD
 import { Panel } from "@/components/ui/Panel";
 =======
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
 
 export function FileUploadForm() {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -18,7 +23,11 @@ export function FileUploadForm() {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
     // TODO: Integrate with backend upload endpoint and trigger asynchronous analysis job.
   };
 
@@ -42,7 +51,12 @@ export function FileUploadForm() {
       <Input label="Upload Files" name="files" type="file" multiple required />
       <Button type="submit">Start Analysis</Button>
     </form>
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
   );
 }

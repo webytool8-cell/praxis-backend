@@ -7,8 +7,13 @@ type ButtonVariant = "primary" | "secondary" | "ghost";
 type ButtonVariant = "primary" | "secondary" | "ghost";
 =======
 type ButtonVariant = "primary" | "secondary";
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -18,7 +23,11 @@ export function Button({ variant = "primary", className = "", ...props }: Button
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
   const base =
     "rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent/50 disabled:opacity-50";
   const variants: Record<ButtonVariant, string> = {
@@ -34,8 +43,13 @@ export function Button({ variant = "primary", className = "", ...props }: Button
   const variants: Record<ButtonVariant, string> = {
     primary: "bg-brand text-white hover:bg-blue-700",
     secondary: "bg-slate-200 text-slate-900 hover:bg-slate-300",
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
   };
 
   return <button className={`${base} ${variants[variant]} ${className}`} {...props} />;

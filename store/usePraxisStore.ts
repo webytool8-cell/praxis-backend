@@ -4,7 +4,11 @@ import { create } from "zustand";
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
 import { GraphNodeDetails, ViewTemplate } from "@/types/graph";
 
 interface PraxisState {
@@ -28,8 +32,13 @@ import { GraphNodeDetails } from "@/types/graph";
 interface PraxisState {
   selectedNode: GraphNodeDetails | null;
   setSelectedNode: (node: GraphNodeDetails | null) => void;
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
 }
 
 export const usePraxisStore = create<PraxisState>((set) => ({
@@ -37,7 +46,11 @@ export const usePraxisStore = create<PraxisState>((set) => ({
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
   hoveredNodeId: null,
   template: "architecture",
   heatmapMode: false,
@@ -53,6 +66,11 @@ export const usePraxisStore = create<PraxisState>((set) => ({
 =======
 =======
   setSelectedNode: (node) => set({ selectedNode: node }),
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
 }));

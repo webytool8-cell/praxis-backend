@@ -15,8 +15,13 @@ export default function UploadPage() {
       <p className="text-sm text-slate-600">
         Submit source files for analysis to generate a PRAXIS system map.
       </p>
+<<<<<<< HEAD
 >>>>>>> codex/generate-next.js-project-structure-for-praxis
 >>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
       <FileUploadForm />
     </section>
   );
