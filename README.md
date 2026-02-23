@@ -28,6 +28,40 @@ npm run dev
    - Build Command: `npm run build`
    - Output Directory: default/empty (not `public`)
 
+## Conflict-resolution workflow (GitHub web editor + CLI)
+
+If GitHub says this branch has conflicts, resolve them before merging:
+
+### Option A: GitHub web editor
+
+1. Open the PR and click **Resolve conflicts**.
+2. For each conflicted file, keep the newer dark-dashboard implementation unless you intentionally need older content.
+3. Remove all conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`).
+4. Mark as resolved and commit merge.
+
+### Option B: command line
+
+```bash
+git fetch origin
+git merge origin/main
+# or: git rebase origin/main
+```
+
+Then edit each conflicted file, remove conflict markers, and finish with:
+
+```bash
+git add .
+git commit
+# if rebasing: git rebase --continue
+```
+
+Validation commands:
+
+```bash
+rg -n "^(<<<<<<<|=======|>>>>>>>)" .
+git status
+```
+
 ## Notes
 
 - Graph data and insights are placeholder data for now.
