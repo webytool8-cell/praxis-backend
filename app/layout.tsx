@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
@@ -9,6 +12,8 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "PRAXIS",
   description: "Premium system intelligence maps for modern codebases.",
+<<<<<<< HEAD
+=======
 =======
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
@@ -16,6 +21,7 @@ import { Navbar } from "@/components/layout/Navbar";
 export const metadata: Metadata = {
   title: "PRAXIS",
   description: "Visual system maps for repositories and project files.",
+>>>>>>> main
 >>>>>>> main
 };
 
@@ -26,6 +32,9 @@ export default function RootLayout({
 }>) {
   return (
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
     <html lang="en" className="dark">
       <body className={`${inter.className} bg-aurora min-h-screen`}>
         <div className="pointer-events-none fixed inset-0 opacity-70">
@@ -34,11 +43,14 @@ export default function RootLayout({
         </div>
         <Navbar />
         <main className="relative z-10 mx-auto min-h-[calc(100vh-4rem)] max-w-[1500px] px-4 py-6 md:px-6">
+<<<<<<< HEAD
+=======
 =======
     <html lang="en">
       <body>
         <Navbar />
         <main className="mx-auto min-h-[calc(100vh-4rem)] max-w-7xl px-4 py-6 md:px-6">
+>>>>>>> main
 >>>>>>> main
           {children}
         </main>

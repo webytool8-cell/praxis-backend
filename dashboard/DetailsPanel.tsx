@@ -1,6 +1,9 @@
 "use client";
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 import { useState } from "react";
 import { Panel } from "@/components/ui/Panel";
 import { usePraxisStore } from "@/store/usePraxisStore";
@@ -30,15 +33,21 @@ function Section({
   );
 }
 
+<<<<<<< HEAD
+=======
 =======
 import { usePraxisStore } from "@/store/usePraxisStore";
 
+>>>>>>> main
 >>>>>>> main
 export function DetailsPanel() {
   const selectedNode = usePraxisStore((state) => state.selectedNode);
 
   return (
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
     <Panel className="h-full space-y-3 p-4">
       <div>
         <p className="text-xs uppercase tracking-[0.18em] text-muted">Details</p>
@@ -89,6 +98,8 @@ export function DetailsPanel() {
 
       {/* TODO: Expand this panel with backend AI-generated remediation actions and architecture notes. */}
     </Panel>
+<<<<<<< HEAD
+=======
 =======
     <section className="h-full rounded-lg border border-slate-200 bg-white p-4">
       <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">
@@ -116,6 +127,7 @@ export function DetailsPanel() {
       )}
       {/* TODO: Inject deeper module insights from the PRAXIS analysis endpoint. */}
     </section>
+>>>>>>> main
 >>>>>>> main
   );
 }

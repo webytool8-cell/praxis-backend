@@ -1,6 +1,9 @@
 "use client";
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 import { useEffect, useMemo, useState } from "react";
 import ReactFlow, {
   Background,
@@ -141,6 +144,8 @@ export function GraphViewport() {
 
       {/* TODO: Replace static template graph definitions with PRAXIS backend graph-layout service output. */}
     </Panel>
+<<<<<<< HEAD
+=======
 =======
 import { useMemo } from "react";
 import ReactFlow, { Background, Controls, Edge, Node } from "reactflow";
@@ -201,6 +206,7 @@ export function GraphViewport() {
         <Controls />
       </ReactFlow>
     </section>
+>>>>>>> main
 >>>>>>> main
   );
 }

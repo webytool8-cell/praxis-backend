@@ -6,12 +6,19 @@ import { Input } from "@/components/ui/Input";
 <<<<<<< HEAD
 import { Panel } from "@/components/ui/Panel";
 =======
+<<<<<<< HEAD
+import { Panel } from "@/components/ui/Panel";
+=======
+>>>>>>> main
 >>>>>>> main
 
 export function RepoSelectorForm() {
   const handleConnect = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
     // TODO: Trigger GitHub OAuth and repository discovery APIs from PRAXIS backend.
   };
 
@@ -29,6 +36,8 @@ export function RepoSelectorForm() {
         <p className="text-xs text-muted">OAuth status + repo list will appear here after integration.</p>
       </form>
     </Panel>
+<<<<<<< HEAD
+=======
 =======
     // TODO: Trigger GitHub OAuth flow and save connected repository selection.
   };
@@ -48,6 +57,7 @@ export function RepoSelectorForm() {
       </div>
       {/* TODO: Populate repository dropdown and OAuth status from backend auth/session APIs. */}
     </form>
+>>>>>>> main
 >>>>>>> main
   );
 }

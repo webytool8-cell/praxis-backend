@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 "use client";
 
 import Link from "next/link";
@@ -86,6 +89,8 @@ export function ControlsPanel() {
 
       {/* TODO: Replace this local control-state with backend-driven job/template API responses. */}
     </Panel>
+<<<<<<< HEAD
+=======
 =======
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
@@ -115,6 +120,7 @@ export function ControlsPanel() {
         </Button>
       </div>
     </section>
+>>>>>>> main
 >>>>>>> main
   );
 }
