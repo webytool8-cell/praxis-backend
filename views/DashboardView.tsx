@@ -7,7 +7,24 @@ export function DashboardView() {
   return (
     <div className="grid gap-4 lg:grid-cols-[220px_1fr]">
       <Sidebar />
+<<<<<<< HEAD
       <section className="grid gap-4 xl:grid-cols-[280px_1fr_320px]">
+=======
+<<<<<<< HEAD
+      <section className="grid gap-4 xl:grid-cols-[280px_1fr_320px]">
+=======
+<<<<<<< HEAD
+      <section className="grid gap-4 xl:grid-cols-[280px_1fr_320px]">
+=======
+      <section className="grid gap-4 xl:grid-cols-[280px_1fr_300px]">
+<<<<<<< HEAD
+>>>>>>> codex/generate-next.js-project-structure-for-praxis
+>>>>>>> codex/generate-next.js-project-structure-for-praxis-tnp5m1
+=======
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
         <ControlsPanel />
         <GraphViewport />
         <DetailsPanel />
