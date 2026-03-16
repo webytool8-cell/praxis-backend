@@ -1,30 +1,53 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo } from "react";
+import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/Button";
 import { Panel } from "@/components/ui/Panel";
 import { ToggleGroup } from "@/components/ui/ToggleGroup";
+import { ExportMenu } from "@/components/ExportMenu";
 import { usePraxisStore } from "@/store/usePraxisStore";
 import { ViewTemplate } from "@/types/graph";
-import { exportDashboardPdf } from "@/utils/pdfExport";
 
 const templateOptions: readonly ViewTemplate[] = ["architecture", "dataFlow", "dependency", "risk"] as const;
 
 export function ControlsPanel() {
+  const { data: session } = useSession();
+  const planId = (session?.user as any)?.planId ?? "free";
+
   const template = usePraxisStore((state) => state.template);
   const setTemplate = usePraxisStore((state) => state.setTemplate);
   const setHeatmapMode = usePraxisStore((state) => state.setHeatmapMode);
   const heatmapMode = usePraxisStore((state) => state.heatmapMode);
   const toggleCluster = usePraxisStore((state) => state.toggleCluster);
+  const securityPanelOpen = usePraxisStore((state) => state.securityPanelOpen);
+  const setSecurityPanelOpen = usePraxisStore((state) => state.setSecurityPanelOpen);
   const setAnalyzing = usePraxisStore((state) => state.setAnalyzing);
-  const selectedNode = usePraxisStore((state) => state.selectedNode);
+  const currentAnalysis = usePraxisStore((state) => state.currentAnalysis);
+  const currentAnalysisId = usePraxisStore((state) => state.currentAnalysisId);
 
-  const summary = useMemo(
-    () =>
-      "Architecture posture is stable. Payments path is currently highest risk and should be inspected for complexity hotspots.",
-    [],
-  );
+  const handleReanalyze = async () => {
+    if (!currentAnalysisId) {
+      // Fallback: show fake analyzing state
+      setAnalyzing(true);
+      setTimeout(() => setAnalyzing(false), 1200);
+      return;
+    }
+    // Re-trigger analysis (for future: could re-fetch from source)
+    setAnalyzing(true);
+    try {
+      const res = await fetch(`/api/analyses/${currentAnalysisId}`);
+      // Just re-load the current analysis
+      const data = await res.json();
+      if (data.graphData) {
+        usePraxisStore.getState().setCurrentAnalysis(data.graphData, currentAnalysisId);
+      }
+    } finally {
+      setAnalyzing(false);
+    }
+  };
+
+  const securityCount = currentAnalysis?.securityFindings?.length ?? 0;
 
   return (
     <Panel className="space-y-4 p-4">
@@ -55,35 +78,32 @@ export function ControlsPanel() {
           <Button variant="secondary" onClick={toggleCluster}>
             Cluster
           </Button>
+          {securityCount > 0 && (
+            <Button
+              variant={securityPanelOpen ? "primary" : "secondary"}
+              onClick={() => setSecurityPanelOpen(!securityPanelOpen)}
+              className="col-span-2 relative"
+            >
+              Security
+              <span className="absolute -top-1.5 -right-1.5 h-4 w-4 rounded-full bg-red-500 text-white text-[10px] flex items-center justify-center">
+                {securityCount > 9 ? "9+" : securityCount}
+              </span>
+            </Button>
+          )}
           <Button
             variant="secondary"
-            onClick={() => {
-              setAnalyzing(true);
-              setTimeout(() => setAnalyzing(false), 1200);
-            }}
-            className="col-span-2"
+            onClick={handleReanalyze}
+            className={securityCount > 0 ? "" : "col-span-2"}
           >
-            Re-analyze Repo
+            Re-analyze
           </Button>
         </div>
       </div>
 
-      <Button
-        variant="secondary"
-        className="w-full"
-        onClick={() =>
-          exportDashboardPdf({
-            template,
-            summary,
-            selectedNode,
-            graphElementId: "graph-canvas-export",
-          })
-        }
-      >
-        Export as PDF
-      </Button>
-
-      {/* TODO: Replace this local control-state with backend-driven job/template API responses. */}
+      <div className="flex items-center justify-between">
+        <p className="text-xs uppercase tracking-wide text-muted">Export</p>
+        <ExportMenu planId={planId} />
+      </div>
     </Panel>
   );
 }
