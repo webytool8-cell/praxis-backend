@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Panel } from "@/components/ui/Panel";
+import { SecurityPanel } from "@/components/SecurityPanel";
 import { usePraxisStore } from "@/store/usePraxisStore";
 
 function Section({
@@ -24,16 +25,26 @@ function Section({
         {title}
         <span className="text-xs text-muted">{open ? "−" : "+"}</span>
       </button>
-      {open && <div className="animate-fadeIn border-t border-slate-800/80 px-3 py-3 text-sm text-slate-300">{children}</div>}
+      {open && (
+        <div className="animate-fadeIn border-t border-slate-800/80 px-3 py-3 text-sm text-slate-300">
+          {children}
+        </div>
+      )}
     </div>
   );
 }
 
 export function DetailsPanel() {
   const selectedNode = usePraxisStore((state) => state.selectedNode);
+  const currentAnalysis = usePraxisStore((state) => state.currentAnalysis);
+
+  // Get security findings for the selected node
+  const nodeFindings = currentAnalysis?.securityFindings?.filter((f) =>
+    f.file.toLowerCase().includes(selectedNode?.name?.toLowerCase() ?? "___never___")
+  ) ?? [];
 
   return (
-    <Panel className="h-full space-y-3 p-4">
+    <Panel className="h-full space-y-3 p-4 overflow-y-auto">
       <div>
         <p className="text-xs uppercase tracking-[0.18em] text-muted">Details</p>
         <h3 className="mt-1 text-lg font-semibold text-slate-100">Node Inspector</h3>
@@ -44,7 +55,7 @@ export function DetailsPanel() {
           <p className="text-sm font-medium text-blue-100">{selectedNode.name}</p>
 
           <Section title="Description">
-            <p>{selectedNode.description}</p>
+            <p>{selectedNode.aiExplanation ?? selectedNode.description}</p>
           </Section>
 
           <Section title="Dependencies">
@@ -74,14 +85,40 @@ export function DetailsPanel() {
               <p>{selectedNode.riskScore}/100</p>
             </div>
           </Section>
+
+          {selectedNode.remediations && selectedNode.remediations.length > 0 && (
+            <Section title="AI Suggestions" defaultOpen={true}>
+              <ul className="space-y-2">
+                {selectedNode.remediations.map((r, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="text-accentViolet mt-0.5 shrink-0">→</span>
+                    <span>{r}</span>
+                  </li>
+                ))}
+              </ul>
+            </Section>
+          )}
+
+          {nodeFindings.length > 0 && (
+            <Section title={`Security Findings (${nodeFindings.length})`} defaultOpen={false}>
+              <SecurityPanel findings={nodeFindings} nodeId={selectedNode.id} />
+            </Section>
+          )}
         </div>
       ) : (
-        <p className="rounded-lg border border-slate-800 bg-slate-900/50 p-3 text-sm text-muted">
-          Select a node to review module description, dependencies, metrics, and risk.
-        </p>
-      )}
+        <>
+          <p className="rounded-lg border border-slate-800 bg-slate-900/50 p-3 text-sm text-muted">
+            Select a node to review module description, dependencies, metrics, and risk.
+          </p>
 
-      {/* TODO: Expand this panel with backend AI-generated remediation actions and architecture notes. */}
+          {/* Show overall security summary when no node is selected */}
+          {currentAnalysis?.securityFindings && currentAnalysis.securityFindings.length > 0 && (
+            <Section title={`Security Scan (${currentAnalysis.securityFindings.length} findings)`} defaultOpen={false}>
+              <SecurityPanel findings={currentAnalysis.securityFindings} />
+            </Section>
+          )}
+        </>
+      )}
     </Panel>
   );
 }

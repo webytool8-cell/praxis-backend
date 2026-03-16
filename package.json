@@ -10,13 +10,27 @@
     "validate:merge": "node scripts/validate-merge-state.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
+    "@auth/prisma-adapter": "^2.11.1",
+    "@octokit/auth-app": "^8.2.0",
+    "@octokit/rest": "^22.0.1",
+    "@prisma/client": "^7.5.0",
+    "@remotion/bundler": "^4.0.435",
+    "@remotion/renderer": "^4.0.435",
+    "html-to-image": "1.11.11",
+    "jspdf": "2.5.2",
     "next": "14.2.5",
+    "next-auth": "^5.0.0-beta.30",
+    "openai": "^6.29.0",
+    "pptxgenjs": "^4.0.1",
+    "prisma": "^7.5.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "reactflow": "11.11.4",
-    "zustand": "4.5.4",
-    "jspdf": "2.5.2",
-    "html-to-image": "1.11.11"
+    "remotion": "^4.0.435",
+    "resend": "^6.9.3",
+    "stripe": "^20.4.1",
+    "zustand": "4.5.4"
   },
   "devDependencies": {
     "@types/node": "20.14.12",
