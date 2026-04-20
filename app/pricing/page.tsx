@@ -28,7 +28,7 @@ const PLANS = [
     period: "per month",
     description: "Everything you need to deeply understand any codebase.",
     cta: "Start Pro",
-    ctaHref: "/api/stripe/checkout?plan=pro",
+    ctaHref: "/sign-in",
     highlight: true,
     features: [
       "Unlimited analyses",
@@ -50,7 +50,7 @@ const PLANS = [
     period: "per month",
     description: "Built for engineering teams that ship together.",
     cta: "Start Team",
-    ctaHref: "/api/stripe/checkout?plan=team",
+    ctaHref: "/sign-in",
     highlight: false,
     features: [
       "Everything in Pro",

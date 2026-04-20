@@ -11,7 +11,7 @@ const protectedRoutes = [
   "/api/chat",
 ];
 
-const publicRoutes = ["/", "/pricing", "/sign-in", "/api/stripe/webhook", "/api/auth", "/share"];
+const publicRoutes = ["/", "/pricing", "/sign-in", "/api/auth", "/share"];
 
 export default auth((req) => {
   const { nextUrl } = req;
