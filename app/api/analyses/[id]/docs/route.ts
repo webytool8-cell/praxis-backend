@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import type { AnalysisGraphData } from "@/types/graph";
 
 function generateMarkdown(analysis: any): string {
-  const graphData = analysis.graphData as AnalysisGraphData;
+  const graphData = analysis.graphData as unknown as AnalysisGraphData;
   const security = (analysis.securityScan as any[]) ?? [];
 
   const lines: string[] = [

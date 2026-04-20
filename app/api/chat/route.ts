@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
     take: 10,
   });
 
-  const graphData = analysis.graphData as AnalysisGraphData;
+  const graphData = analysis.graphData as unknown as AnalysisGraphData;
   const componentSummary = Object.values(graphData.details)
     .map((n) => `- ${n.name} (${n.type}): risk ${n.riskScore}/100, ${n.description}`)
     .join("\n");
