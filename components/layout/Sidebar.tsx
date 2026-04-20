@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { Panel } from "@/components/ui/Panel";
 import { usePraxisStore } from "@/store/usePraxisStore";
 
@@ -22,6 +22,7 @@ interface AnalysisSummary {
 export function Sidebar() {
   const [analyses, setAnalyses] = useState<AnalysisSummary[]>([]);
   const currentAnalysisId = usePraxisStore((state) => state.currentAnalysisId);
+  const pathname = usePathname();
   const searchParams = useSearchParams();
   const activeAnalysisId = searchParams.get("analysisId") ?? currentAnalysisId;
 
@@ -43,7 +44,11 @@ export function Sidebar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="block rounded-lg px-3 py-2 text-sm text-slate-300 transition duration-300 hover:bg-slate-800/70 hover:text-white"
+                className={`block rounded-lg px-3 py-2 text-sm transition duration-200 border ${
+                  pathname === link.href
+                    ? "text-accent bg-accent/10 border-accent/25 shadow-glow-sm"
+                    : "text-slate-300 border-transparent hover:bg-slate-800/70 hover:text-white"
+                }`}
               >
                 {link.label}
               </Link>
@@ -60,10 +65,10 @@ export function Sidebar() {
               <li key={analysis.id}>
                 <Link
                   href={`/dashboard?analysisId=${analysis.id}`}
-                  className={`block rounded-lg px-3 py-2 text-xs transition duration-300 hover:bg-slate-800/70 hover:text-white truncate ${
+                  className={`block rounded-lg px-3 py-2 text-xs transition duration-200 hover:bg-slate-800/70 hover:text-white truncate border ${
                     activeAnalysisId === analysis.id
-                      ? "bg-accent/10 text-accent"
-                      : "text-slate-400"
+                      ? "bg-accent/10 text-accent border-accent/25 shadow-glow-sm"
+                      : "text-slate-400 border-transparent"
                   }`}
                   title={analysis.name}
                 >
