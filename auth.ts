@@ -1,34 +1,30 @@
 import NextAuth from "next-auth";
+import GitHub from "next-auth/providers/github";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import Resend from "next-auth/providers/resend";
 import { prisma } from "@/lib/prisma";
-import { authConfig } from "./auth.config";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  ...authConfig,
   providers: [
-    ...authConfig.providers.map((provider: any) => {
-      if (provider.id === "github") {
+    GitHub({
+      clientId: process.env.GITHUB_CLIENT_ID!,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
+      authorization: {
+        params: { scope: "read:user user:email repo" },
+      },
+      profile(profile) {
         return {
-          ...provider,
-          profile(profile: any) {
-            return {
-              id: String(profile.id),
-              name: profile.name ?? profile.login,
-              email: profile.email ?? `${profile.id}+${profile.login}@users.noreply.github.com`,
-              image: profile.avatar_url,
-              githubUsername: profile.login,
-            };
-          },
+          id: String(profile.id),
+          name: profile.name ?? profile.login,
+          email: profile.email ?? `${profile.id}+${profile.login}@users.noreply.github.com`,
+          image: profile.avatar_url,
+          githubUsername: profile.login,
         };
-      }
-      return provider;
-    }),
-    Resend({
-      apiKey: process.env.RESEND_API_KEY!,
-      from: process.env.EMAIL_FROM ?? "noreply@praxis.app",
+      },
     }),
   ],
+  pages: {
+    signIn: "/sign-in",
+  },
   adapter: PrismaAdapter(prisma),
   session: {
     strategy: "jwt",
