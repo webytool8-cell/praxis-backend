@@ -3,7 +3,7 @@ import { createHmac, timingSafeEqual } from "crypto";
 import { prisma } from "@/lib/prisma";
 import Anthropic from "@anthropic-ai/sdk";
 
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const getAnthropic = () => new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 function verifySignature(body: string, signature: string | null): boolean {
   if (!signature || !process.env.GITHUB_WEBHOOK_SECRET) return false;
@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
     .map((n: any) => `${n.name} (${n.type})`)
     .join(", ");
 
-  const impactResponse = await anthropic.messages.create({
+  const impactResponse = await getAnthropic().messages.create({
     model: "claude-sonnet-4-6",
     max_tokens: 512,
     messages: [

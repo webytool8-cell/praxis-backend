@@ -4,7 +4,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import type { AnalysisGraphData } from "@/types/graph";
 
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const getAnthropic = () => new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 export async function POST(req: NextRequest) {
   const session = await auth();
@@ -84,7 +84,7 @@ Answer questions about this codebase accurately and concisely. Reference specifi
       let fullContent = "";
 
       try {
-        const response = await anthropic.messages.create({
+        const response = await getAnthropic().messages.create({
           model: "claude-sonnet-4-6",
           max_tokens: 1024,
           system: systemPrompt,
