@@ -16,15 +16,14 @@ body {
 }
 
 .bg-aurora {
-  background:
-    radial-gradient(45rem 45rem at 10% -10%, rgba(91, 140, 255, 0.22), transparent 55%),
-    radial-gradient(35rem 35rem at 90% 0%, rgba(139, 92, 246, 0.16), transparent 58%),
-    linear-gradient(180deg, #0b0f14 0%, #0b0f14 45%, #0d1320 100%);
+  background: #07090E;
+  background-image: radial-gradient(ellipse 80rem 50rem at 20% -5%, rgba(91, 140, 255, 0.07) 0%, transparent 60%);
 }
 
 .glass-panel {
-  background: linear-gradient(180deg, rgba(20, 28, 40, 0.75), rgba(12, 18, 29, 0.72));
-  backdrop-filter: blur(8px);
+  background: rgba(12, 18, 33, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .react-flow__attribution {
@@ -32,5 +31,10 @@ body {
 }
 
 .react-flow__controls {
-  @apply rounded-lg border border-slate-700 bg-slate-900/70 shadow-soft;
+  @apply rounded-lg border border-slate-700 bg-panel/90 shadow-soft;
 }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(91, 140, 255, 0.18); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(91, 140, 255, 0.38); }

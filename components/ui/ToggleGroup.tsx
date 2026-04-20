@@ -17,10 +17,10 @@ export function ToggleGroup<T extends string>({ label, value, options, onChange 
               key={option}
               type="button"
               onClick={() => onChange(option)}
-              className={`rounded-lg border px-3 py-2 text-xs capitalize transition duration-300 ${
+              className={`rounded-lg border px-3 py-2 text-xs capitalize transition duration-200 active:scale-95 ${
                 active
-                  ? "border-accent/80 bg-accent/20 text-blue-100 shadow-glow"
-                  : "border-slate-700 bg-slate-900/60 text-slate-300 hover:border-slate-500"
+                  ? "border-accent/70 bg-accent/15 text-accent shadow-glow-sm"
+                  : "border-slate-700 bg-panel/60 text-slate-400 hover:border-accent/30 hover:text-slate-200"
               }`}
             >
               {option.replace(/([A-Z])/g, " $1")}

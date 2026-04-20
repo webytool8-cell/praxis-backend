@@ -13,20 +13,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#0B0F14",
-        panel: "#101722",
+        bg: "#07090E",
+        panel: "#0C1221",
         muted: "#8A95A8",
         accent: "#5B8CFF",
         accentViolet: "#8B5CF6",
       },
       boxShadow: {
-        soft: "0 10px 30px rgba(0, 0, 0, 0.35)",
-        glow: "0 0 0 1px rgba(91,140,255,.3), 0 0 20px rgba(91,140,255,.25)",
+        soft: "0 4px 24px rgba(0, 0, 0, 0.5)",
+        glow: "0 0 0 1px rgba(91,140,255,0.55), 0 0 20px rgba(91,140,255,0.4), 0 0 48px rgba(91,140,255,0.15)",
+        "glow-sm": "0 0 0 1px rgba(91,140,255,0.4), 0 0 8px rgba(91,140,255,0.28)",
+        "glow-strong": "0 0 0 1px rgba(91,140,255,0.8), 0 0 32px rgba(91,140,255,0.55), 0 0 72px rgba(91,140,255,0.22)",
       },
       animation: {
         float: "float 9s ease-in-out infinite",
         pulseSlow: "pulseSlow 2.8s ease-in-out infinite",
         fadeIn: "fadeIn .3s ease-in-out",
+        glowPulse: "glowPulse 2s ease-in-out infinite",
       },
       keyframes: {
         float: {
@@ -40,6 +43,10 @@ const config: Config = {
         fadeIn: {
           from: { opacity: "0", transform: "translateY(6px)" },
           to: { opacity: "1", transform: "translateY(0)" },
+        },
+        glowPulse: {
+          "0%,100%": { boxShadow: "0 0 0 1px rgba(91,140,255,0.4), 0 0 12px rgba(91,140,255,0.25)" },
+          "50%": { boxShadow: "0 0 0 1px rgba(91,140,255,0.7), 0 0 24px rgba(91,140,255,0.5), 0 0 48px rgba(91,140,255,0.18)" },
         },
       },
     },

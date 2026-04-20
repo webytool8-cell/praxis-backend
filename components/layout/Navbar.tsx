@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
+import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { usePraxisStore } from "@/store/usePraxisStore";
 
@@ -14,12 +15,13 @@ const navItems = [
 
 const PLAN_BADGE: Record<string, { label: string; className: string }> = {
   free: { label: "Free", className: "text-muted bg-white/5" },
-  pro: { label: "Pro", className: "text-accent bg-accent/10" },
+  pro: { label: "Pro", className: "text-accent bg-accent/10 shadow-glow-sm" },
   team: { label: "Team", className: "text-accentViolet bg-accentViolet/10" },
 };
 
 export function Navbar() {
   const { data: session } = useSession();
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const chatOpen = usePraxisStore((state) => state.chatOpen);
@@ -41,25 +43,31 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-20 border-b border-slate-800/80 bg-bg/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-20 border-b border-slate-800/80 bg-bg/90 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-[1500px] items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-wider text-slate-100">
-          <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent shadow-glow" />
+          <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent shadow-glow animate-pulseSlow" />
           PRAXIS
         </Link>
 
-        <nav className="flex items-center gap-1 text-sm text-slate-300">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-3 py-2 transition duration-300 hover:bg-slate-800/70 hover:text-white"
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="flex items-center gap-0.5 text-sm text-slate-300">
+          {navItems.map((item) => {
+            const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`rounded-md px-3 py-2 transition duration-200 ${
+                  isActive
+                    ? "text-accent bg-accent/10 shadow-glow-sm border border-accent/25"
+                    : "hover:bg-slate-800/70 hover:text-white border border-transparent"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
 
-          {/* AI Chat toggle (Pro/Team only, shown when analysis is loaded) */}
           {currentAnalysisId && (
             <button
               onClick={() => {
@@ -69,10 +77,10 @@ export function Navbar() {
                 }
                 setChatOpen(!chatOpen);
               }}
-              className={`flex items-center gap-1.5 rounded-md px-3 py-2 transition duration-300 ${
+              className={`flex items-center gap-1.5 rounded-md px-3 py-2 transition duration-200 border ${
                 chatOpen
-                  ? "bg-accent/20 text-accent"
-                  : "hover:bg-slate-800/70 hover:text-white"
+                  ? "bg-accent/15 text-accent shadow-glow-sm border-accent/25"
+                  : "border-transparent hover:bg-slate-800/70 hover:text-white"
               }`}
               title={isPro ? "AI Codebase Chat" : "Upgrade to Pro for AI Chat"}
             >
@@ -89,7 +97,11 @@ export function Navbar() {
             <div className="relative" ref={menuRef}>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 hover:bg-white/10 transition-colors"
+                className={`flex items-center gap-2 rounded-lg border px-3 py-1.5 transition-all duration-200 ${
+                  menuOpen
+                    ? "border-accent/40 bg-accent/10 shadow-glow-sm"
+                    : "border-slate-700/60 bg-panel hover:border-accent/30"
+                }`}
               >
                 {session.user.image && (
                   <img
@@ -107,21 +119,21 @@ export function Navbar() {
               </button>
 
               {menuOpen && (
-                <div className="absolute right-0 top-full mt-2 w-44 rounded-xl border border-white/10 bg-[#101722] shadow-2xl z-50 overflow-hidden">
-                  <div className="px-4 py-3 border-b border-white/10">
+                <div className="absolute right-0 top-full mt-2 w-44 rounded-xl border border-accent/20 bg-panel shadow-glow-sm z-50 overflow-hidden animate-fadeIn">
+                  <div className="px-4 py-3 border-b border-slate-800">
                     <p className="text-xs font-medium text-white truncate">{session.user.name}</p>
                     <p className="text-xs text-muted truncate">{session.user.email}</p>
                   </div>
                   <Link
                     href="/account"
                     onClick={() => setMenuOpen(false)}
-                    className="block px-4 py-2.5 text-sm text-slate-300 hover:bg-white/5 hover:text-white transition-colors"
+                    className="block px-4 py-2.5 text-sm text-slate-300 hover:bg-accent/10 hover:text-accent transition-colors"
                   >
                     Account & Billing
                   </Link>
                   <button
                     onClick={() => { signOut({ callbackUrl: "/" }); setMenuOpen(false); }}
-                    className="w-full text-left px-4 py-2.5 text-sm text-slate-300 hover:bg-white/5 hover:text-white transition-colors"
+                    className="w-full text-left px-4 py-2.5 text-sm text-slate-300 hover:bg-slate-800/70 hover:text-white transition-colors"
                   >
                     Sign Out
                   </button>
@@ -131,7 +143,7 @@ export function Navbar() {
           ) : (
             <Link
               href="/sign-in"
-              className="rounded-lg border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
+              className="rounded-lg border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm text-accent hover:shadow-glow-sm hover:border-accent/50 transition-all duration-200"
             >
               Sign In
             </Link>
