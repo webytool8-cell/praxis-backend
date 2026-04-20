@@ -13,7 +13,11 @@ const nextConfig = {
     },
   },
   webpack: (config) => {
-    config.resolve.fallback = { ...config.resolve.fallback, punycode: false };
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      punycode: false,
+      "pg-native": false,
+    };
     return config;
   },
 };
