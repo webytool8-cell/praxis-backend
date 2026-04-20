@@ -21,7 +21,7 @@ import type { AnalysisGraphData } from "@/types/graph";
 const nodeTypes = { nodeCard: NodeCard };
 
 function nodeColor(complexity: number, heatmapMode: boolean) {
-  if (!heatmapMode) return "#5B8CFF";
+  if (!heatmapMode) return "#1d1aff";
   if (complexity > 30) return "#f97316";
   if (complexity > 22) return "#eab308";
   return "#10b981";
@@ -111,7 +111,7 @@ export function GraphViewport() {
       .map((edge: any) => ({
         ...edge,
         type: "smoothstep",
-        markerEnd: { type: MarkerType.ArrowClosed, color: "#5B8CFF" },
+        markerEnd: { type: MarkerType.ArrowClosed, color: "#1d1aff" },
         animated: true,
         style: {
           stroke: connected.has(edge.source) || connected.has(edge.target) ? "#93c5fd" : "#4469b3",
@@ -129,7 +129,7 @@ export function GraphViewport() {
   const showLoading = isAnalyzing || loadingAnalysis;
 
   return (
-    <Panel className="relative h-[700px] overflow-hidden">
+    <Panel className="relative h-[55vh] min-h-[320px] md:h-[600px] xl:h-[700px] overflow-hidden">
       <div id="graph-canvas-export" className="h-full w-full">
         <ReactFlow
           key={currentAnalysis ? `analysis-${template}` : template}

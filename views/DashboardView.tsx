@@ -12,13 +12,17 @@ export function DashboardView() {
 
   return (
     <>
-      <div className="grid gap-4 lg:grid-cols-[220px_1fr]">
-        <Sidebar />
-        <section className="grid gap-4 xl:grid-cols-[280px_1fr_320px]">
+      <div className="grid gap-3 lg:grid-cols-[220px_1fr]">
+        {/* Sidebar hidden on mobile — nav available via hamburger menu */}
+        <div className="hidden lg:block">
+          <Sidebar />
+        </div>
+
+        <div className="grid gap-3 xl:grid-cols-[280px_1fr_320px]">
           <ControlsPanel />
           <GraphViewport />
           <DetailsPanel />
-        </section>
+        </div>
       </div>
 
       {chatOpen && <ChatPanel />}
