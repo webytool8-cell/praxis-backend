@@ -22,10 +22,9 @@ const PLAN_BADGE: Record<string, { label: string; className: string }> = {
 function PraxisLogo({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 40 40" className={className} xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(20,20)">
-        <rect x="-5" y="-20" width="10" height="40" fill="#1d1aff" transform="rotate(45)" />
-        <rect x="-5" y="-20" width="10" height="40" fill="#1d1aff" transform="rotate(-45)" />
-      </g>
+      <polygon points="17.9,17.9 22.1,22.1 8.8,35.4 4.6,31.2" fill="#1d1aff" />
+      <polygon points="19.1,16.7 23.3,20.9 36.6,7.6 32.4,3.4" fill="#1d1aff" />
+      <polygon points="4.6,8.8 8.8,4.6 35.4,31.2 31.2,35.4" fill="#1d1aff" />
     </svg>
   );
 }

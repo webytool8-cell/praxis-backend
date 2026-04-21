@@ -1,0 +1,8 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bottom-left arm -->
+  <polygon points="44.7,44.7 55.3,55.3 22.1,88.5 11.5,77.9" fill="#1d1aff"/>
+  <!-- Top-right arm (shifted 3px right, 3px up to create the gap) -->
+  <polygon points="47.7,41.7 58.3,52.3 91.5,19.1 80.9,8.5" fill="#1d1aff"/>
+  <!-- Full top-left to bottom-right bar -->
+  <polygon points="11.5,22.1 22.1,11.5 88.5,77.9 77.9,88.5" fill="#1d1aff"/>
+</svg>
