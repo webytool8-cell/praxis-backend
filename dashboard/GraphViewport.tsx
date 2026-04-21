@@ -38,13 +38,15 @@ export function GraphViewport() {
   const setHoveredNodeId = usePraxisStore((state) => state.setHoveredNodeId);
   const setSelectedNode = usePraxisStore((state) => state.setSelectedNode);
   const currentAnalysis = usePraxisStore((state) => state.currentAnalysis);
+  const currentAnalysisId = usePraxisStore((state) => state.currentAnalysisId);
   const setCurrentAnalysis = usePraxisStore((state) => state.setCurrentAnalysis);
 
   const [loadingAnalysis, setLoadingAnalysis] = useState(false);
 
-  // Load analysis from API when analysisId param is present
+  // Load analysis from API when analysisId param is present and not already loaded
   useEffect(() => {
     if (!analysisId) return;
+    if (currentAnalysisId === analysisId && currentAnalysis) return;
 
     setLoadingAnalysis(true);
     fetch(`/api/analyses/${analysisId}`)
@@ -56,7 +58,7 @@ export function GraphViewport() {
       })
       .catch(console.error)
       .finally(() => setLoadingAnalysis(false));
-  }, [analysisId, setCurrentAnalysis]);
+  }, [analysisId, currentAnalysisId, currentAnalysis, setCurrentAnalysis]);
 
   // Use real analysis data if available, fall back to static templates
   const activePayload = useMemo(() => {

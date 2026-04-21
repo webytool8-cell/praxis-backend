@@ -40,6 +40,7 @@ export function DashboardToolbar() {
 
   const [analyses, setAnalyses] = useState<AnalysisSummary[]>([]);
   const [dropOpen, setDropOpen] = useState(false);
+  const [loadingId, setLoadingId] = useState<string | null>(null);
   const dropRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -56,6 +57,23 @@ export function DashboardToolbar() {
     document.addEventListener("mousedown", h);
     return () => document.removeEventListener("mousedown", h);
   }, []);
+
+  const loadAnalysis = async (id: string) => {
+    setDropOpen(false);
+    if (id === currentAnalysisId && currentAnalysis) return;
+    setLoadingId(id);
+    setCurrentAnalysis(null);
+    router.push(`/dashboard?analysisId=${id}`, { scroll: false });
+    try {
+      const res = await fetch(`/api/analyses/${id}`);
+      const data = await res.json();
+      if (data.graphData) setCurrentAnalysis(data.graphData, id);
+    } catch {
+      // silent — GraphViewport will retry via searchParams
+    } finally {
+      setLoadingId(null);
+    }
+  };
 
   const currentName = analyses.find((a) => a.id === currentAnalysisId)?.name
     ?? (currentAnalysis ? "Analysis" : "No analysis loaded");
@@ -89,12 +107,9 @@ export function DashboardToolbar() {
                     <button
                       key={a.id}
                       type="button"
-                      onClick={() => {
-                        setDropOpen(false);
-                        setCurrentAnalysis(null);
-                        router.push(`/dashboard?analysisId=${a.id}`);
-                      }}
-                      className={`w-full flex items-center gap-2.5 px-3 py-2 text-sm transition-colors hover:bg-slate-800/60 ${
+                      onClick={() => loadAnalysis(a.id)}
+                      disabled={loadingId === a.id}
+                      className={`w-full flex items-center gap-2.5 px-3 py-2 text-sm transition-colors hover:bg-slate-800/60 disabled:opacity-50 ${
                         a.id === currentAnalysisId ? "text-accent" : "text-slate-300"
                       }`}
                     >
