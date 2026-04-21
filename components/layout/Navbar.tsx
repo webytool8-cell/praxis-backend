@@ -8,8 +8,7 @@ import { usePraxisStore } from "@/store/usePraxisStore";
 
 const navItems = [
   { href: "/dashboard", label: "Dashboard" },
-  { href: "/upload", label: "Upload" },
-  { href: "/repo", label: "Repository" },
+  { href: "/repo", label: "Connect" },
   { href: "/pricing", label: "Pricing" },
 ];
 
