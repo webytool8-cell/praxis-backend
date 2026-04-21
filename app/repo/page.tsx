@@ -52,6 +52,8 @@ export default function ConnectPage() {
   const [selectedRepo, setSelectedRepo] = useState("");
   const [projectName, setProjectName] = useState("");
   const [uploadExpanded, setUploadExpanded] = useState(false);
+  const [uploadName, setUploadName] = useState("");
+  const [uploadFiles, setUploadFiles] = useState<FileList | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showUpgrade, setShowUpgrade] = useState(false);
 
@@ -304,31 +306,52 @@ export default function ConnectPage() {
             <div className="border-t border-slate-800/60 px-5 py-4 animate-fadeIn">
               <form onSubmit={submitFiles} className="space-y-3">
                 <div>
-                  <label className="block text-xs font-medium text-slate-400 mb-1.5">Project Name</label>
-                  <input
-                    name="projectName"
-                    placeholder="my-project"
-                    required
-                    className="w-full rounded-lg border border-slate-700/60 bg-slate-900/60 px-3 py-2 text-sm text-white placeholder:text-muted focus:outline-none focus:ring-1 focus:ring-accent"
-                  />
-                </div>
-                <div>
                   <label className="block text-xs font-medium text-slate-400 mb-1.5">Source Files</label>
                   <input
                     name="files"
                     type="file"
                     multiple
                     required
+                    onChange={(e) => {
+                      const files = e.target.files;
+                      setUploadFiles(files);
+                      if (files && files.length > 0) {
+                        const first = files[0].name.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ");
+                        setUploadName(first);
+                      }
+                    }}
                     className="w-full rounded-lg border border-slate-700/60 bg-slate-900/60 px-3 py-2 text-sm text-slate-300 file:mr-3 file:rounded-md file:border-0 file:bg-accent/20 file:px-3 file:py-1 file:text-xs file:text-accent file:cursor-pointer focus:outline-none"
                   />
                   <p className="mt-1.5 text-xs text-muted">.ts .tsx .js .py .go .java .rs and more · Max 50 files / 10 MB</p>
                 </div>
+
+                {uploadFiles && uploadFiles.length > 0 && (
+                  <div className="rounded-lg border border-slate-700/40 bg-slate-900/40 px-4 py-3 space-y-2 animate-fadeIn">
+                    <div className="flex items-center gap-2 text-xs text-muted">
+                      <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      {uploadFiles.length} file{uploadFiles.length !== 1 ? "s" : ""} selected
+                    </div>
+                    <div>
+                      <label className="block text-xs text-muted mb-1">Project name</label>
+                      <input
+                        name="projectName"
+                        value={uploadName}
+                        onChange={(e) => setUploadName(e.target.value)}
+                        required
+                        className="w-full rounded-md border border-slate-700/60 bg-slate-900/60 px-3 py-1.5 text-sm text-white placeholder:text-muted focus:outline-none focus:ring-1 focus:ring-accent"
+                      />
+                    </div>
+                  </div>
+                )}
+
                 {error && (
                   <p className="rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-sm text-red-400">
                     {error}
                   </p>
                 )}
-                <Button type="submit" variant="secondary" disabled={isAnalyzing} className="w-full">
+                <Button type="submit" variant="secondary" disabled={isAnalyzing || !uploadFiles?.length} className="w-full">
                   {isAnalyzing ? "Analyzing…" : "Upload & Analyze"}
                 </Button>
               </form>

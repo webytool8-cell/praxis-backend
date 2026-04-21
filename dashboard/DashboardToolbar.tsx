@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { usePraxisStore } from "@/store/usePraxisStore";
 import { ExportMenu } from "@/components/ExportMenu";
@@ -33,6 +34,9 @@ export function DashboardToolbar() {
   const setChatOpen = usePraxisStore((s) => s.setChatOpen);
   const securityPanelOpen = usePraxisStore((s) => s.securityPanelOpen);
   const setSecurityPanelOpen = usePraxisStore((s) => s.setSecurityPanelOpen);
+
+  const setCurrentAnalysis = usePraxisStore((s) => s.setCurrentAnalysis);
+  const router = useRouter();
 
   const [analyses, setAnalyses] = useState<AnalysisSummary[]>([]);
   const [dropOpen, setDropOpen] = useState(false);
@@ -82,19 +86,23 @@ export function DashboardToolbar() {
               {analyses.length > 0 && (
                 <div className="py-1">
                   {analyses.map((a) => (
-                    <Link
+                    <button
                       key={a.id}
-                      href={`/dashboard?analysisId=${a.id}`}
-                      onClick={() => setDropOpen(false)}
-                      className={`flex items-center gap-2.5 px-3 py-2 text-sm transition-colors hover:bg-slate-800/60 ${
+                      type="button"
+                      onClick={() => {
+                        setDropOpen(false);
+                        setCurrentAnalysis(null);
+                        router.push(`/dashboard?analysisId=${a.id}`);
+                      }}
+                      className={`w-full flex items-center gap-2.5 px-3 py-2 text-sm transition-colors hover:bg-slate-800/60 ${
                         a.id === currentAnalysisId ? "text-accent" : "text-slate-300"
                       }`}
                     >
                       <svg className="w-3.5 h-3.5 text-muted shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7" />
                       </svg>
-                      <span className="truncate">{a.name}</span>
-                    </Link>
+                      <span className="truncate text-left">{a.name}</span>
+                    </button>
                   ))}
                 </div>
               )}
