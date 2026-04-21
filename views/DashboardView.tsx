@@ -1,31 +1,26 @@
 "use client";
 
-import { Sidebar } from "@/components/layout/Sidebar";
-import { ControlsPanel } from "@/dashboard/ControlsPanel";
-import { DetailsPanel } from "@/dashboard/DetailsPanel";
 import { GraphViewport } from "@/dashboard/GraphViewport";
+import { DashboardToolbar } from "@/dashboard/DashboardToolbar";
+import { NodeDrawer } from "@/dashboard/NodeDrawer";
+import { SecurityDrawer } from "@/dashboard/SecurityDrawer";
 import { ChatPanel } from "@/components/ChatPanel";
 import { usePraxisStore } from "@/store/usePraxisStore";
 
 export function DashboardView() {
-  const chatOpen = usePraxisStore((state) => state.chatOpen);
+  const selectedNode = usePraxisStore((s) => s.selectedNode);
+  const chatOpen = usePraxisStore((s) => s.chatOpen);
+  const securityPanelOpen = usePraxisStore((s) => s.securityPanelOpen);
 
   return (
-    <>
-      <div className="grid gap-3 lg:grid-cols-[220px_1fr]">
-        {/* Sidebar hidden on mobile — nav available via hamburger menu */}
-        <div className="hidden lg:block">
-          <Sidebar />
-        </div>
-
-        <div className="grid gap-3 xl:grid-cols-[280px_1fr_320px]">
-          <ControlsPanel />
-          <GraphViewport />
-          <DetailsPanel />
-        </div>
+    <div className="-mx-4 -my-6 md:-mx-6 flex flex-col" style={{ height: "calc(100vh - 3.5rem)" }}>
+      <DashboardToolbar />
+      <div className="relative min-h-0 flex-1">
+        <GraphViewport />
+        {securityPanelOpen && <SecurityDrawer />}
+        {selectedNode && <NodeDrawer />}
+        {chatOpen && <ChatPanel />}
       </div>
-
-      {chatOpen && <ChatPanel />}
-    </>
+    </div>
   );
 }

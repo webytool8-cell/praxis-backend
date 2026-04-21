@@ -12,7 +12,6 @@ import ReactFlow, {
   NodeMouseHandler,
 } from "reactflow";
 import "reactflow/dist/style.css";
-import { Panel } from "@/components/ui/Panel";
 import { NodeCard } from "@/dashboard/NodeCard";
 import { templates } from "@/dashboard/graphTemplates";
 import { usePraxisStore } from "@/store/usePraxisStore";
@@ -129,7 +128,7 @@ export function GraphViewport() {
   const showLoading = isAnalyzing || loadingAnalysis;
 
   return (
-    <Panel className="relative h-[55vh] min-h-[320px] md:h-[600px] xl:h-[700px] overflow-hidden">
+    <div className="relative h-full w-full overflow-hidden">
       <div id="graph-canvas-export" className="h-full w-full">
         <ReactFlow
           key={currentAnalysis ? `analysis-${template}` : template}
@@ -167,6 +166,6 @@ export function GraphViewport() {
           </div>
         </div>
       )}
-    </Panel>
+    </div>
   );
 }
