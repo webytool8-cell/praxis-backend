@@ -81,7 +81,7 @@ export function DashboardToolbar() {
   const securityCount = currentAnalysis?.securityFindings?.length ?? 0;
 
   return (
-    <div className="flex h-11 items-center justify-between gap-2 border-b border-slate-800/80 bg-bg/95 backdrop-blur-sm px-3 shrink-0">
+    <div className="relative z-10 flex h-11 items-center justify-between gap-2 border-b border-slate-800/80 bg-bg/95 backdrop-blur-sm px-3 shrink-0">
 
       {/* Left: analysis picker */}
       <div className="flex items-center gap-2 min-w-0">
