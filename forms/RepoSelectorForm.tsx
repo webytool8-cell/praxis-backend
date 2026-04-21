@@ -29,15 +29,12 @@ export function RepoSelectorForm() {
 
   // Load repos once session is available
   useEffect(() => {
-    const token = (session as any)?.githubAccessToken;
-    if (!token) return;
+    if (!session) return;
 
     setLoadingRepos(true);
-    fetch("https://api.github.com/user/repos?sort=updated&per_page=50", {
-      headers: { Authorization: `Bearer ${token}` },
-    })
+    fetch("/api/github/repos?sort=updated&per_page=50")
       .then((res) => res.json())
-      .then((data: GitHubRepo[]) => setRepos(Array.isArray(data) ? data : []))
+      .then((data) => setRepos(Array.isArray(data.repos) ? data.repos : []))
       .catch(() => setRepos([]))
       .finally(() => setLoadingRepos(false));
   }, [session]);
