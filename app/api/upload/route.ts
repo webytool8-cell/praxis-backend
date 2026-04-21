@@ -54,7 +54,11 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: "Invalid GitHub URL" }, { status: 400 });
       }
 
-      const githubToken = (session as any).githubAccessToken;
+      const account = await prisma.account.findFirst({
+        where: { userId, provider: "github" },
+        select: { access_token: true },
+      });
+      const githubToken = account?.access_token;
       if (!githubToken) {
         return NextResponse.json({ error: "GitHub access token not available. Please sign in with GitHub." }, { status: 400 });
       }
