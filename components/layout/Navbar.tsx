@@ -75,7 +75,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-wider text-slate-100">
           <PraxisLogo className="w-6 h-6" />
-          PRAXIS
+          PRAKSYS
         </Link>
 
         {/* Desktop nav */}

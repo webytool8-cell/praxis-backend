@@ -151,7 +151,7 @@ export default function PricingPage() {
             },
             {
               q: "How does the GitHub PR bot work?",
-              a: "On the Team plan, PRAXIS installs as a GitHub App and automatically comments on pull requests with an architecture impact analysis — showing which components are affected and by how much.",
+              a: "On the Team plan, PRAKSYS installs as a GitHub App and automatically comments on pull requests with an architecture impact analysis — showing which components are affected and by how much.",
             },
           ].map(({ q, a }) => (
             <div key={q}>

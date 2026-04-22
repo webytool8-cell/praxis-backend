@@ -2,15 +2,15 @@ import Link from "next/link";
 import { auth } from "@/auth";
 
 export const metadata = {
-  title: "Docs — PRAXIS",
-  description: "Learn how PRAXIS analyzes your codebase and generates interactive system maps.",
+  title: "Docs — PRAKSYS",
+  description: "Learn how PRAKSYS analyzes your codebase and generates interactive system maps.",
 };
 
 const sections = [
   {
-    id: "what-is-praxis",
-    title: "What is PRAXIS?",
-    content: `PRAXIS is a developer intelligence tool that connects to your GitHub repository or accepts a codebase upload and produces an interactive, navigable system map of your project.
+    id: "what-is-praksys",
+    title: "What is PRAKSYS?",
+    content: `PRAKSYS is a developer intelligence tool that connects to your GitHub repository or accepts a codebase upload and produces an interactive, navigable system map of your project.
 
 It uses AI to parse your source code — mapping services, modules, APIs, and data flows — then renders the result as a live graph you can explore, filter, and share. Designed for engineers who need to onboard quickly, audit architecture, or communicate system structure to stakeholders.`,
   },
@@ -21,7 +21,7 @@ It uses AI to parse your source code — mapping services, modules, APIs, and da
       {
         n: "1",
         title: "Connect your project",
-        body: "Sign in with GitHub to automatically import any of your repositories, or upload a ZIP archive of your codebase. PRAXIS supports JavaScript, TypeScript, Python, Go, Rust, Java, and more.",
+        body: "Sign in with GitHub to automatically import any of your repositories, or upload a ZIP archive of your codebase. PRAKSYS supports JavaScript, TypeScript, Python, Go, Rust, Java, and more.",
       },
       {
         n: "2",
@@ -102,14 +102,14 @@ It uses AI to parse your source code — mapping services, modules, APIs, and da
       },
       {
         q: "Is my source code stored?",
-        a: "PRAXIS stores only the analysis result (the graph data and node metadata), not your raw source files. Uploaded ZIP archives are deleted after analysis completes.",
+        a: "PRAKSYS stores only the analysis result (the graph data and node metadata), not your raw source files. Uploaded ZIP archives are deleted after analysis completes.",
       },
       {
         q: "Can I re-analyze after a push?",
         a: "Yes. Go to Connect, select the same repository, and run a new analysis. Each run creates a new entry in your analysis history.",
       },
       {
-        q: "How large a codebase can PRAXIS handle?",
+        q: "How large a codebase can PRAKSYS handle?",
         a: "Repositories up to 200 MB and ~500k lines of code are supported. Very large monorepos may take a few minutes to analyze.",
       },
       {
@@ -128,7 +128,7 @@ export default async function DocsPage() {
       {/* Header */}
       <div className="mb-14">
         <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-accent">Documentation</p>
-        <h1 className="text-3xl font-bold text-white sm:text-4xl">PRAXIS — Developer System Intelligence</h1>
+        <h1 className="text-3xl font-bold text-white sm:text-4xl">PRAKSYS — Developer System Intelligence</h1>
         <p className="mt-4 text-base text-slate-400 leading-relaxed">
           Everything you need to connect your codebase and get an interactive system map in minutes.
         </p>
@@ -174,8 +174,8 @@ export default async function DocsPage() {
       {/* Content */}
       <div className="space-y-16">
 
-        {/* What is PRAXIS */}
-        <section id="what-is-praxis">
+        {/* What is PRAKSYS */}
+        <section id="what-is-praksys">
           <h2 className="mb-4 text-xl font-semibold text-white">{sections[0].title}</h2>
           <p className="text-slate-400 leading-relaxed whitespace-pre-line">{sections[0].content}</p>
         </section>

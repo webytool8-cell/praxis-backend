@@ -107,11 +107,11 @@ Keep response under 100 words. Be specific and actionable.`,
   const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://praxis.app";
 
   // Post comment on PR
-  const commentBody = `## 🔍 PRAXIS Architecture Review
+  const commentBody = `## 🔍 PRAKSYS Architecture Review
 
 ${impact}
 
-[View full impact map](${appUrl}/dashboard?analysisId=${repoAnalysis.id}) · *Powered by [PRAXIS](${appUrl})*`;
+[View full impact map](${appUrl}/dashboard?analysisId=${repoAnalysis.id}) · *Powered by [PRAKSYS](${appUrl})*`;
 
   await fetch(`https://api.github.com/repos/${repo}/issues/${prNumber}/comments`, {
     method: "POST",

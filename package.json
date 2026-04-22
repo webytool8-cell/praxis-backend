@@ -1,5 +1,5 @@
 {
-  "name": "praxis-frontend",
+  "name": "praksys-frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -46,7 +46,7 @@
     "tailwindcss": "3.4.7",
     "typescript": "5.5.4"
   },
-  "description": "PRAXIS dark dashboard frontend",
+  "description": "PRAKSYS dark dashboard frontend",
   "engines": {
     "node": "22.x"
   }

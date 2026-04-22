@@ -67,7 +67,7 @@ const steps = [
   {
     n: "02",
     title: "AI analysis runs",
-    desc: "PRAXIS parses your source files, builds a dependency graph, runs a security scan, and generates AI insights — in seconds.",
+    desc: "PRAKSYS parses your source files, builds a dependency graph, runs a security scan, and generates AI insights — in seconds.",
   },
   {
     n: "03",

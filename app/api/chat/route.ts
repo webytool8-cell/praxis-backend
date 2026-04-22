@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
     },
   });
 
-  const systemPrompt = `You are an expert software architect assistant for PRAXIS, analyzing the "${analysis.name}" codebase.
+  const systemPrompt = `You are an expert software architect assistant for PRAKSYS, analyzing the "${analysis.name}" codebase.
 
 Architecture Overview:
 ${graphData.aiSummary ?? "No summary available."}

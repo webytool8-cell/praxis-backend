@@ -27,7 +27,7 @@ export default function SignInPage() {
             </svg>
           </div>
           <p className="text-xs uppercase tracking-[0.25em] text-muted">Developer System Intelligence</p>
-          <h1 className="mt-2 text-2xl font-semibold text-white">Sign in to PRAXIS</h1>
+          <h1 className="mt-2 text-2xl font-semibold text-white">Sign in to PRAKSYS</h1>
           <p className="mt-2 text-sm text-slate-400">Free to start. No credit card required.</p>
         </div>
 

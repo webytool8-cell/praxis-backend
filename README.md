@@ -1,6 +1,6 @@
-# PRAXIS Frontend
+# PRAKSYS Frontend
 
-Dark, minimalist Next.js App Router frontend for PRAXIS system visualization.
+Dark, minimalist Next.js App Router frontend for PRAKSYS system visualization.
 
 ## Run locally
 

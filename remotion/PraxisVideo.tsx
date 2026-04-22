@@ -51,7 +51,7 @@ function TitleCard({ projectName, frame }: { projectName: string; frame: number 
       <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
         <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#5B8CFF", boxShadow: "0 0 20px #5B8CFF" }} />
         <p style={{ color: "#5B8CFF", fontSize: 14, fontFamily: "Arial", letterSpacing: 8, textTransform: "uppercase" }}>
-          PRAXIS
+          PRAKSYS
         </p>
       </div>
       <h1 style={{ color: "#E2E8F0", fontSize: 52, fontFamily: "Arial", fontWeight: "bold", textAlign: "center", margin: 0 }}>
@@ -229,7 +229,7 @@ function Outro({ frame }: { frame: number }) {
       <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
         <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#5B8CFF" }} />
         <p style={{ color: "#5B8CFF", fontSize: 12, fontFamily: "Arial", letterSpacing: 8, textTransform: "uppercase" }}>
-          PRAXIS
+          PRAKSYS
         </p>
       </div>
       <p style={{ color: "#8A95A8", fontSize: 18, fontFamily: "Arial" }}>

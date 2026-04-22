@@ -17,7 +17,7 @@ export async function exportDashboardPdf(payload: ExportPayload) {
 
   doc.setTextColor(229, 231, 235);
   doc.setFontSize(20);
-  doc.text("PRAXIS System Report", 40, 50);
+  doc.text("PRAKSYS System Report", 40, 50);
 
   doc.setFontSize(11);
   doc.setTextColor(148, 163, 184);
@@ -42,11 +42,11 @@ export async function exportDashboardPdf(payload: ExportPayload) {
     doc.text(`LOC: ${node.metrics.loc} | Imports: ${node.metrics.imports}`, 40, 505);
     doc.text(`Dependencies: ${node.dependencies.join(", ") || "None"}`, 40, 525, { maxWidth: 520 });
   } else {
-    doc.text("Select a node in PRAXIS to enrich this report with module-level metrics.", 40, 465, {
+    doc.text("Select a node in PRAKSYS to enrich this report with module-level metrics.", 40, 465, {
       maxWidth: 520,
     });
   }
 
-  // TODO: Pull full architecture summary + risk analysis from PRAXIS backend analysis endpoints.
+  // TODO: Pull full architecture summary + risk analysis from PRAKSYS backend analysis endpoints.
   doc.save(`praxis-${payload.template}-report.pdf`);
 }
