@@ -10,10 +10,20 @@ export default function SignInPage() {
       <Panel className="w-full max-w-sm p-8">
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
-            <svg viewBox="0 0 40 40" className="w-10 h-10" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="17.9,17.9 22.1,22.1 8.8,35.4 4.6,31.2" fill="#1d1aff" />
-              <polygon points="19.1,16.7 23.3,20.9 36.6,7.6 32.4,3.4" fill="#1d1aff" />
-              <polygon points="4.6,8.8 8.8,4.6 35.4,31.2 31.2,35.4" fill="#1d1aff" />
+            <svg viewBox="0 0 100 100" className="w-10 h-10" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#2244ff" fillRule="evenodd" d="
+                M 14,14 H 50
+                L 50,14.5 L 62,14.5 L 64.7,22.4
+                L 71.3,17.5 L 81.2,24.7 L 78.7,32.5
+                L 86.9,32.6 L 90.7,44.1 L 84,49
+                L 90.7,53.9 L 86.9,65.4 L 78.7,65.5
+                L 81.2,73.3 L 71.3,80.5 L 64.7,75.6
+                L 62,83.5 L 50,83.5 L 47.4,75.6
+                L 40.7,80.5 L 30.8,73.3
+                L 32,73 V 88 H 14 Z
+                M 56,29 A 20,20 0 0,1 56,69 A 20,20 0 0,1 56,29 Z
+                M 50,43 A 6,6 0 0,1 50,55 A 6,6 0 0,1 50,43 Z
+              "/>
             </svg>
           </div>
           <p className="text-xs uppercase tracking-[0.25em] text-muted">Developer System Intelligence</p>

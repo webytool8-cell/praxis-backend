@@ -1,8 +1,16 @@
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Bottom-left arm -->
-  <polygon points="44.7,44.7 55.3,55.3 22.1,88.5 11.5,77.9" fill="#1d1aff"/>
-  <!-- Top-right arm (shifted 3px right, 3px up to create the gap) -->
-  <polygon points="47.7,41.7 58.3,52.3 91.5,19.1 80.9,8.5" fill="#1d1aff"/>
-  <!-- Full top-left to bottom-right bar -->
-  <polygon points="11.5,22.1 22.1,11.5 88.5,77.9 77.9,88.5" fill="#1d1aff"/>
+  <rect width="100" height="100" fill="white"/>
+  <path fill="#2244ff" fill-rule="evenodd" d="
+    M 14,14 H 50
+    L 50,14.5 L 62,14.5 L 64.7,22.4
+    L 71.3,17.5 L 81.2,24.7 L 78.7,32.5
+    L 86.9,32.6 L 90.7,44.1 L 84,49
+    L 90.7,53.9 L 86.9,65.4 L 78.7,65.5
+    L 81.2,73.3 L 71.3,80.5 L 64.7,75.6
+    L 62,83.5 L 50,83.5 L 47.4,75.6
+    L 40.7,80.5 L 30.8,73.3
+    L 32,73 V 88 H 14 Z
+    M 56,29 A 20,20 0 0,1 56,69 A 20,20 0 0,1 56,29 Z
+    M 50,43 A 6,6 0 0,1 50,55 A 6,6 0 0,1 50,43 Z
+  "/>
 </svg>
