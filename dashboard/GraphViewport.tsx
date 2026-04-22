@@ -20,7 +20,7 @@ import type { AnalysisGraphData } from "@/types/graph";
 const nodeTypes = { nodeCard: NodeCard };
 
 function nodeColor(complexity: number, heatmapMode: boolean) {
-  if (!heatmapMode) return "#1d1aff";
+  if (!heatmapMode) return "#4488ff";
   if (complexity > 30) return "#f97316";
   if (complexity > 22) return "#eab308";
   return "#10b981";
@@ -112,10 +112,10 @@ export function GraphViewport() {
       .map((edge: any) => ({
         ...edge,
         type: "smoothstep",
-        markerEnd: { type: MarkerType.ArrowClosed, color: "#1d1aff" },
+        markerEnd: { type: MarkerType.ArrowClosed, color: "#4488ff" },
         animated: true,
         style: {
-          stroke: connected.has(edge.source) || connected.has(edge.target) ? "#93c5fd" : "#4469b3",
+          stroke: connected.has(edge.source) || connected.has(edge.target) ? "#93c5fd" : "#2d5db8",
           strokeWidth: connected.has(edge.source) || connected.has(edge.target) ? 2.2 : 1.2,
           transition: "all 240ms ease-in-out",
         },
