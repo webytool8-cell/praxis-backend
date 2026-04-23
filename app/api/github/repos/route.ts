@@ -8,15 +8,11 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  // Get GitHub access token from the Account table
-  const account = await prisma.account.findFirst({
-    where: { userId: session.user.id, provider: "github" },
-    select: { access_token: true },
-  });
+  const githubToken = (session as any).githubAccessToken as string | undefined;
 
-  if (!account?.access_token) {
+  if (!githubToken) {
     return NextResponse.json(
-      { error: "GitHub access token not found. Please sign in with GitHub." },
+      { error: "GitHub access token not found. Please sign out and sign back in." },
       { status: 400 }
     );
   }
@@ -29,7 +25,7 @@ export async function GET(req: NextRequest) {
     `https://api.github.com/user/repos?sort=${sort}&per_page=${perPage}&type=all`,
     {
       headers: {
-        Authorization: `Bearer ${account.access_token}`,
+        Authorization: `Bearer ${githubToken}`,
         Accept: "application/vnd.github.v3+json",
       },
     }
