@@ -5,8 +5,10 @@ import Anthropic from "@anthropic-ai/sdk";
 import OpenAI from "openai";
 import type { AnalysisGraphData } from "@/types/graph";
 
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const getClients = () => ({
+  anthropic: new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY }),
+  openai: new OpenAI({ apiKey: process.env.OPENAI_API_KEY }),
+});
 
 // Note: Full Remotion rendering requires a dedicated render server.
 // This endpoint generates the narration script and audio,
@@ -35,6 +37,8 @@ export async function GET(
   if (!analysis) {
     return NextResponse.json({ error: "Analysis not found" }, { status: 404 });
   }
+
+  const { anthropic, openai } = getClients();
 
   const graphData = analysis.graphData as unknown as AnalysisGraphData;
   const componentList = Object.values(graphData.details)

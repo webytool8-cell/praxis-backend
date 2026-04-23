@@ -25,7 +25,7 @@ export default async function SharePage({ params }: { params: { token: string } 
         <div>
           <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-wider text-slate-100">
             <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent shadow-glow" />
-            PRAXIS
+            PRAKSYS
           </Link>
         </div>
         <div className="text-sm text-muted">
@@ -37,7 +37,7 @@ export default async function SharePage({ params }: { params: { token: string } 
           href="/sign-in"
           className="rounded-lg border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm text-accent hover:bg-accent/20 transition-colors"
         >
-          Try PRAXIS Free →
+          Try PRAKSYS Free →
         </Link>
       </div>
 
@@ -52,7 +52,7 @@ export default async function SharePage({ params }: { params: { token: string } 
       <div className="border-t border-white/10 py-4 text-center text-xs text-muted">
         Powered by{" "}
         <Link href="/" className="text-accent hover:underline">
-          PRAXIS
+          PRAKSYS
         </Link>{" "}
         · Developer System Intelligence
       </div>

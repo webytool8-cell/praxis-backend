@@ -105,7 +105,7 @@ export function ChatPanel() {
   };
 
   return (
-    <div className="fixed right-0 top-0 h-full w-96 bg-[#101722] border-l border-white/10 flex flex-col z-40 shadow-2xl">
+    <div className="absolute right-0 top-0 z-50 flex h-full w-96 flex-col border-l border-slate-800 bg-panel/95 shadow-2xl backdrop-blur-md animate-fadeIn">
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
         <div>

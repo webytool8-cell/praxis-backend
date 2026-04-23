@@ -7,8 +7,12 @@ import { Navbar } from "@/components/layout/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "PRAXIS",
-  description: "Premium system intelligence maps for modern codebases.",
+  title: "PRAKSYS — Developer System Intelligence",
+  description: "Upload a project or connect GitHub to generate an interactive, risk-aware system map with architecture, data-flow, and dependency layers.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

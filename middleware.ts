@@ -1,5 +1,8 @@
-import { auth } from "@/auth";
+import NextAuth from "next-auth";
+import { authConfig } from "./auth.config";
 import { NextResponse } from "next/server";
+
+const { auth } = NextAuth(authConfig);
 
 const protectedRoutes = [
   "/dashboard",
@@ -11,14 +14,13 @@ const protectedRoutes = [
   "/api/chat",
 ];
 
-const publicRoutes = ["/", "/pricing", "/sign-in", "/api/stripe/webhook", "/api/auth", "/share"];
-
 export default auth((req) => {
   const { nextUrl } = req;
   const isAuthenticated = !!req.auth;
 
-  const isProtected = protectedRoutes.some((route) => nextUrl.pathname.startsWith(route));
-  const isPublic = publicRoutes.some((route) => nextUrl.pathname.startsWith(route));
+  const isProtected = protectedRoutes.some((route) =>
+    nextUrl.pathname.startsWith(route)
+  );
 
   if (isProtected && !isAuthenticated) {
     const signInUrl = new URL("/sign-in", nextUrl.origin);

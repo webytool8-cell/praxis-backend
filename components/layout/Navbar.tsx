@@ -8,8 +8,8 @@ import { usePraxisStore } from "@/store/usePraxisStore";
 
 const navItems = [
   { href: "/dashboard", label: "Dashboard" },
-  { href: "/upload", label: "Upload" },
-  { href: "/repo", label: "Repository" },
+  { href: "/repo", label: "Connect" },
+  { href: "/docs", label: "Docs" },
   { href: "/pricing", label: "Pricing" },
 ];
 
@@ -19,10 +19,31 @@ const PLAN_BADGE: Record<string, { label: string; className: string }> = {
   team: { label: "Team", className: "text-accentViolet bg-accentViolet/10" },
 };
 
+function PraxisLogo({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} xmlns="http://www.w3.org/2000/svg">
+      <path fill="#4488ff" fillRule="evenodd" d="
+        M 80.5,37.4
+        L 91.1,41.3 L 91.1,58.7 L 80.5,62.6
+        L 85.2,72.9 L 72.9,85.2 L 62.6,80.5
+        L 58.7,91.1 L 41.3,91.1 L 37.4,80.5
+        L 27.1,85.2 L 14.8,72.9 L 19.5,62.6
+        L 8.9,58.7 L 8.9,41.3 L 19.5,37.4
+        L 14.8,27.1 L 27.1,14.8 L 37.4,19.5
+        L 41.3,8.9 L 58.7,8.9 L 62.6,19.5
+        L 72.9,14.8 L 85.2,27.1 L 80.5,37.4 Z
+        M 50,32 A 18,18 0 0,1 50,68 A 18,18 0 0,1 50,32 Z
+        M 50,43 A 7,7 0 0,1 50,57 A 7,7 0 0,1 50,43 Z
+      "/>
+    </svg>
+  );
+}
+
 export function Navbar() {
   const { data: session } = useSession();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const chatOpen = usePraxisStore((state) => state.chatOpen);
   const setChatOpen = usePraxisStore((state) => state.setChatOpen);
@@ -42,39 +63,41 @@ export function Navbar() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  useEffect(() => { setMobileOpen(false); }, [pathname]);
+
+  const isActive = (href: string) =>
+    pathname === href || (href !== "/" && pathname.startsWith(href));
+
   return (
     <header className="sticky top-0 z-20 border-b border-slate-800/80 bg-bg/90 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-[1500px] items-center justify-between px-4 md:px-6">
+      <div className="mx-auto flex h-14 max-w-[1500px] items-center justify-between px-4 md:px-6">
+
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-wider text-slate-100">
-          <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent shadow-glow animate-pulseSlow" />
-          PRAXIS
+          <PraxisLogo className="w-6 h-6" />
+          PRAKSYS
         </Link>
 
-        <nav className="flex items-center gap-0.5 text-sm text-slate-300">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`rounded-md px-3 py-2 transition duration-200 ${
-                  isActive
-                    ? "text-accent bg-accent/10 shadow-glow-sm border border-accent/25"
-                    : "hover:bg-slate-800/70 hover:text-white border border-transparent"
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-0.5 text-sm text-slate-300">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`rounded-md px-3 py-2 transition duration-200 border ${
+                isActive(item.href)
+                  ? "text-accent bg-accent/10 shadow-glow-sm border-accent/25"
+                  : "border-transparent hover:bg-slate-800/70 hover:text-white"
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
 
           {currentAnalysisId && (
             <button
               onClick={() => {
-                if (!isPro) {
-                  window.location.href = "/pricing";
-                  return;
-                }
+                if (!isPro) { window.location.href = "/pricing"; return; }
                 setChatOpen(!chatOpen);
               }}
               className={`flex items-center gap-1.5 rounded-md px-3 py-2 transition duration-200 border ${
@@ -92,25 +115,22 @@ export function Navbar() {
           )}
         </nav>
 
-        <div className="flex items-center gap-3">
+        {/* Right side */}
+        <div className="flex items-center gap-2">
           {session?.user ? (
             <div className="relative" ref={menuRef}>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className={`flex items-center gap-2 rounded-lg border px-3 py-1.5 transition-all duration-200 ${
+                className={`flex items-center gap-2 rounded-lg border px-2.5 py-1.5 transition-all duration-200 ${
                   menuOpen
                     ? "border-accent/40 bg-accent/10 shadow-glow-sm"
                     : "border-slate-700/60 bg-panel hover:border-accent/30"
                 }`}
               >
                 {session.user.image && (
-                  <img
-                    src={session.user.image}
-                    alt="Avatar"
-                    className="w-6 h-6 rounded-full"
-                  />
+                  <img src={session.user.image} alt="Avatar" className="w-5 h-5 rounded-full" />
                 )}
-                <span className={`text-xs font-semibold px-1.5 py-0.5 rounded-full ${badge.className}`}>
+                <span className={`hidden sm:inline text-xs font-semibold px-1.5 py-0.5 rounded-full ${badge.className}`}>
                   {badge.label}
                 </span>
                 <svg className="w-3 h-3 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,13 +163,64 @@ export function Navbar() {
           ) : (
             <Link
               href="/sign-in"
-              className="rounded-lg border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm text-accent hover:shadow-glow-sm hover:border-accent/50 transition-all duration-200"
+              className="rounded-lg border border-accent/30 bg-accent/10 px-3 py-1.5 text-sm text-accent hover:shadow-glow-sm hover:border-accent/50 transition-all duration-200"
             >
               Sign In
             </Link>
           )}
+
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden flex flex-col items-center justify-center w-9 h-9 gap-1.5 rounded-lg border border-slate-700/60 bg-panel hover:border-accent/30 transition-all"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className={`block w-4 h-0.5 bg-slate-300 transition-all duration-200 origin-center ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-4 h-0.5 bg-slate-300 transition-all duration-200 ${mobileOpen ? "opacity-0 scale-x-0" : ""}`} />
+            <span className={`block w-4 h-0.5 bg-slate-300 transition-all duration-200 origin-center ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          </button>
         </div>
       </div>
+
+      {/* Mobile dropdown */}
+      {mobileOpen && (
+        <div className="md:hidden border-t border-slate-800/80 bg-bg/95 backdrop-blur-xl animate-fadeIn">
+          <nav className="px-4 py-3 space-y-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`block rounded-lg px-3 py-2.5 text-sm transition duration-200 border ${
+                  isActive(item.href)
+                    ? "text-accent bg-accent/10 border-accent/25 shadow-glow-sm"
+                    : "text-slate-300 border-transparent hover:bg-slate-800/70 hover:text-white"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            {currentAnalysisId && (
+              <button
+                onClick={() => {
+                  if (!isPro) { window.location.href = "/pricing"; return; }
+                  setChatOpen(!chatOpen);
+                  setMobileOpen(false);
+                }}
+                className={`w-full text-left flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm transition duration-200 border ${
+                  chatOpen
+                    ? "bg-accent/15 text-accent border-accent/25"
+                    : "text-slate-300 border-transparent hover:bg-slate-800/70 hover:text-white"
+                }`}
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
+                AI Chat {!isPro && <span className="text-xs text-accentViolet">Pro</span>}
+              </button>
+            )}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

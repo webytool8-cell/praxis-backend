@@ -12,7 +12,6 @@ import ReactFlow, {
   NodeMouseHandler,
 } from "reactflow";
 import "reactflow/dist/style.css";
-import { Panel } from "@/components/ui/Panel";
 import { NodeCard } from "@/dashboard/NodeCard";
 import { templates } from "@/dashboard/graphTemplates";
 import { usePraxisStore } from "@/store/usePraxisStore";
@@ -21,7 +20,7 @@ import type { AnalysisGraphData } from "@/types/graph";
 const nodeTypes = { nodeCard: NodeCard };
 
 function nodeColor(complexity: number, heatmapMode: boolean) {
-  if (!heatmapMode) return "#5B8CFF";
+  if (!heatmapMode) return "#4488ff";
   if (complexity > 30) return "#f97316";
   if (complexity > 22) return "#eab308";
   return "#10b981";
@@ -39,13 +38,15 @@ export function GraphViewport() {
   const setHoveredNodeId = usePraxisStore((state) => state.setHoveredNodeId);
   const setSelectedNode = usePraxisStore((state) => state.setSelectedNode);
   const currentAnalysis = usePraxisStore((state) => state.currentAnalysis);
+  const currentAnalysisId = usePraxisStore((state) => state.currentAnalysisId);
   const setCurrentAnalysis = usePraxisStore((state) => state.setCurrentAnalysis);
 
   const [loadingAnalysis, setLoadingAnalysis] = useState(false);
 
-  // Load analysis from API when analysisId param is present
+  // Load analysis from API when analysisId param is present and not already loaded
   useEffect(() => {
     if (!analysisId) return;
+    if (currentAnalysisId === analysisId && currentAnalysis) return;
 
     setLoadingAnalysis(true);
     fetch(`/api/analyses/${analysisId}`)
@@ -57,7 +58,7 @@ export function GraphViewport() {
       })
       .catch(console.error)
       .finally(() => setLoadingAnalysis(false));
-  }, [analysisId, setCurrentAnalysis]);
+  }, [analysisId, currentAnalysisId, currentAnalysis, setCurrentAnalysis]);
 
   // Use real analysis data if available, fall back to static templates
   const activePayload = useMemo(() => {
@@ -111,10 +112,10 @@ export function GraphViewport() {
       .map((edge: any) => ({
         ...edge,
         type: "smoothstep",
-        markerEnd: { type: MarkerType.ArrowClosed, color: "#5B8CFF" },
+        markerEnd: { type: MarkerType.ArrowClosed, color: "#4488ff" },
         animated: true,
         style: {
-          stroke: connected.has(edge.source) || connected.has(edge.target) ? "#93c5fd" : "#4469b3",
+          stroke: connected.has(edge.source) || connected.has(edge.target) ? "#93c5fd" : "#2d5db8",
           strokeWidth: connected.has(edge.source) || connected.has(edge.target) ? 2.2 : 1.2,
           transition: "all 240ms ease-in-out",
         },
@@ -129,7 +130,7 @@ export function GraphViewport() {
   const showLoading = isAnalyzing || loadingAnalysis;
 
   return (
-    <Panel className="relative h-[700px] overflow-hidden">
+    <div className="relative h-full w-full overflow-hidden">
       <div id="graph-canvas-export" className="h-full w-full">
         <ReactFlow
           key={currentAnalysis ? `analysis-${template}` : template}
@@ -167,6 +168,6 @@ export function GraphViewport() {
           </div>
         </div>
       )}
-    </Panel>
+    </div>
   );
 }

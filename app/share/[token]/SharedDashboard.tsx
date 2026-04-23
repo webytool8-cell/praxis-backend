@@ -47,9 +47,9 @@ export function SharedDashboard({ analysisId, graphData, securityFindings }: Sha
   const edges: Edge[] = graphData.edges.map((e) => ({
     ...e,
     type: "smoothstep",
-    markerEnd: { type: MarkerType.ArrowClosed, color: "#5B8CFF" },
+    markerEnd: { type: MarkerType.ArrowClosed, color: "#4488ff" },
     animated: true,
-    style: { stroke: "#4469b3", strokeWidth: 1.2 },
+    style: { stroke: "#2d5db8", strokeWidth: 1.2 },
   }));
 
   // Load comments for selected node

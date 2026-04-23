@@ -4,7 +4,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import type { AnalysisGraphData } from "@/types/graph";
 
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const getAnthropic = () => new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 export async function POST(req: NextRequest) {
   const session = await auth();
@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
     take: 10,
   });
 
-  const graphData = analysis.graphData as AnalysisGraphData;
+  const graphData = analysis.graphData as unknown as AnalysisGraphData;
   const componentSummary = Object.values(graphData.details)
     .map((n) => `- ${n.name} (${n.type}): risk ${n.riskScore}/100, ${n.description}`)
     .join("\n");
@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
     },
   });
 
-  const systemPrompt = `You are an expert software architect assistant for PRAXIS, analyzing the "${analysis.name}" codebase.
+  const systemPrompt = `You are an expert software architect assistant for PRAKSYS, analyzing the "${analysis.name}" codebase.
 
 Architecture Overview:
 ${graphData.aiSummary ?? "No summary available."}
@@ -84,7 +84,7 @@ Answer questions about this codebase accurately and concisely. Reference specifi
       let fullContent = "";
 
       try {
-        const response = await anthropic.messages.create({
+        const response = await getAnthropic().messages.create({
           model: "claude-sonnet-4-6",
           max_tokens: 1024,
           system: systemPrompt,
