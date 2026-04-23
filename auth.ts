@@ -39,6 +39,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         (session.user as any).planId = subscription?.planId ?? "free";
         (session.user as any).subscriptionStatus = subscription?.status ?? "free";
       }
+      if (token.githubAccessToken) {
+        (session as any).githubAccessToken = token.githubAccessToken;
+      }
       return session;
     },
     async jwt({ token, account }) {
