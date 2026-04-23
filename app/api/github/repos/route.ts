@@ -36,7 +36,11 @@ export async function GET(req: NextRequest) {
   );
 
   if (!res.ok) {
-    return NextResponse.json({ error: "Failed to fetch repositories" }, { status: res.status });
+    const body = await res.json().catch(() => ({}));
+    return NextResponse.json(
+      { error: `GitHub API error ${res.status}: ${body.message ?? "unknown"}` },
+      { status: res.status }
+    );
   }
 
   const repos = await res.json();
