@@ -61,9 +61,12 @@ export default function ConnectPage() {
     if (!session) return;
     setLoadingRepos(true);
     fetch("/api/github/repos?sort=updated&per_page=100")
-      .then((r) => r.json())
-      .then((d) => setRepos(Array.isArray(d.repos) ? d.repos : []))
-      .catch(() => setRepos([]))
+      .then(async (r) => {
+        const d = await r.json();
+        if (!r.ok) throw new Error(d.error ?? `HTTP ${r.status}`);
+        setRepos(Array.isArray(d.repos) ? d.repos : []);
+      })
+      .catch((err) => setError(`Could not load repositories: ${err.message}`))
       .finally(() => setLoadingRepos(false));
   }, [session]);
 
