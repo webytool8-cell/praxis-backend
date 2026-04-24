@@ -12,15 +12,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  // Check Pro/Team plan
-  const planId = (session.user as any).planId ?? "free";
-  if (planId === "free") {
-    return NextResponse.json(
-      { error: "AI Chat requires a Pro or Team plan", upgradeUrl: "/pricing" },
-      { status: 402 }
-    );
-  }
-
+  // Plan check disabled
   const { analysisId, message } = await req.json();
 
   if (!analysisId || !message) {
