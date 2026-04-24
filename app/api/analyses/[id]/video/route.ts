@@ -22,13 +22,7 @@ export async function GET(
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const planId = (session.user as any).planId ?? "free";
-  if (planId !== "team") {
-    return NextResponse.json(
-      { error: "Video generation requires the Team plan", upgradeUrl: "/pricing" },
-      { status: 402 }
-    );
-  }
+  // Plan check disabled
 
   const analysis = await prisma.analysis.findFirst({
     where: { id: params.id, userId: session.user.id },
