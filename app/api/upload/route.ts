@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { canRunAnalysis, ensureSubscriptionRecord } from "@/lib/subscription";
+import { ensureSubscriptionRecord } from "@/lib/subscription";
 import { analyzeCodebase, type FileContent } from "@/lib/analyzeCodebase";
 import { fetchRepoFiles } from "@/lib/fetchRepoFiles";
 import { runSecurityScan } from "@/lib/securityScan";
@@ -26,11 +26,7 @@ export async function POST(req: NextRequest) {
   // Ensure subscription record exists
   await ensureSubscriptionRecord(userId);
 
-  // Check usage limits
-  const { allowed, reason, upgradeUrl } = await canRunAnalysis(userId);
-  if (!allowed) {
-    return NextResponse.json({ error: reason, upgradeUrl }, { status: 402 });
-  }
+  // Billing checks disabled
 
   let files: FileContent[] = [];
   let projectName = "Untitled Project";
