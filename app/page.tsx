@@ -102,7 +102,6 @@ export default function LandingPage() {
             </Button>
           </Link>
         </div>
-        <p className="mt-4 text-xs text-muted">Free to start · No credit card required</p>
       </section>
 
       {/* Features */}
@@ -149,7 +148,7 @@ export default function LandingPage() {
         <div className="glass-panel rounded-2xl border border-accent/20 shadow-glow-sm p-10 md:p-14">
           <h2 className="text-3xl font-semibold text-white">Ready to map your system?</h2>
           <p className="mt-3 text-slate-400">
-            Connect your GitHub account and analyze your first repo in seconds. Free plan includes 3 analyses per month.
+            Connect your GitHub account and analyze your first repo in seconds.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link href="/sign-in">
