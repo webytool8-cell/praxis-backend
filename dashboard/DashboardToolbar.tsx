@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
 import { usePraxisStore } from "@/store/usePraxisStore";
 import { ExportMenu } from "@/components/ExportMenu";
 import type { ViewTemplate } from "@/types/graph";
@@ -18,10 +17,6 @@ const TEMPLATES: { value: ViewTemplate; label: string }[] = [
 interface AnalysisSummary { id: string; name: string; sourceType: string }
 
 export function DashboardToolbar() {
-  const { data: session } = useSession();
-  const planId = (session?.user as any)?.planId ?? "free";
-  const isPro = planId === "pro" || planId === "team";
-
   const template = usePraxisStore((s) => s.template);
   const setTemplate = usePraxisStore((s) => s.setTemplate);
   const heatmapMode = usePraxisStore((s) => s.heatmapMode);
@@ -188,16 +183,13 @@ export function DashboardToolbar() {
 
         <div className="mx-1 h-4 w-px bg-slate-800" />
 
-        <ExportMenu planId={planId} />
+        <ExportMenu />
 
         {currentAnalysisId && (
           <ToolbarBtn
             active={chatOpen}
-            onClick={() => {
-              if (!isPro) { window.location.href = "/pricing"; return; }
-              setChatOpen(!chatOpen);
-            }}
-            title={isPro ? "AI Chat" : "Upgrade to Pro for AI Chat"}
+            onClick={() => setChatOpen(!chatOpen)}
+            title="AI Chat"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
