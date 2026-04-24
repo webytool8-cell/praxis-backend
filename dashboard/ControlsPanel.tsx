@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/Button";
 import { Panel } from "@/components/ui/Panel";
 import { ToggleGroup } from "@/components/ui/ToggleGroup";
@@ -12,9 +11,6 @@ import { ViewTemplate } from "@/types/graph";
 const templateOptions: readonly ViewTemplate[] = ["architecture", "dataFlow", "dependency", "risk"] as const;
 
 export function ControlsPanel() {
-  const { data: session } = useSession();
-  const planId = (session?.user as any)?.planId ?? "free";
-
   const template = usePraxisStore((state) => state.template);
   const setTemplate = usePraxisStore((state) => state.setTemplate);
   const setHeatmapMode = usePraxisStore((state) => state.setHeatmapMode);
@@ -102,7 +98,7 @@ export function ControlsPanel() {
 
       <div className="flex items-center justify-between">
         <p className="text-xs uppercase tracking-wide text-muted">Export</p>
-        <ExportMenu planId={planId} />
+        <ExportMenu />
       </div>
     </Panel>
   );
