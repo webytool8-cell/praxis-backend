@@ -10,14 +10,7 @@ const navItems = [
   { href: "/dashboard", label: "Dashboard" },
   { href: "/repo", label: "Connect" },
   { href: "/docs", label: "Docs" },
-  { href: "/pricing", label: "Pricing" },
 ];
-
-const PLAN_BADGE: Record<string, { label: string; className: string }> = {
-  free: { label: "Free", className: "text-muted bg-white/5" },
-  pro: { label: "Pro", className: "text-accent bg-accent/10 shadow-glow-sm" },
-  team: { label: "Team", className: "text-accentViolet bg-accentViolet/10" },
-};
 
 function PraxisLogo({ className = "w-6 h-6" }: { className?: string }) {
   return (
@@ -48,10 +41,6 @@ export function Navbar() {
   const chatOpen = usePraxisStore((state) => state.chatOpen);
   const setChatOpen = usePraxisStore((state) => state.setChatOpen);
   const currentAnalysisId = usePraxisStore((state) => state.currentAnalysisId);
-
-  const planId = (session?.user as any)?.planId ?? "free";
-  const isPro = planId === "pro" || planId === "team";
-  const badge = PLAN_BADGE[planId] ?? PLAN_BADGE.free;
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -96,21 +85,17 @@ export function Navbar() {
 
           {currentAnalysisId && (
             <button
-              onClick={() => {
-                if (!isPro) { window.location.href = "/pricing"; return; }
-                setChatOpen(!chatOpen);
-              }}
+              onClick={() => setChatOpen(!chatOpen)}
               className={`flex items-center gap-1.5 rounded-md px-3 py-2 transition duration-200 border ${
                 chatOpen
                   ? "bg-accent/15 text-accent shadow-glow-sm border-accent/25"
                   : "border-transparent hover:bg-slate-800/70 hover:text-white"
               }`}
-              title={isPro ? "AI Codebase Chat" : "Upgrade to Pro for AI Chat"}
+              title="AI Codebase Chat"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
               </svg>
-              {!isPro && <span className="text-xs text-accentViolet">Pro</span>}
             </button>
           )}
         </nav>
@@ -130,9 +115,6 @@ export function Navbar() {
                 {session.user.image && (
                   <img src={session.user.image} alt="Avatar" className="w-5 h-5 rounded-full" />
                 )}
-                <span className={`hidden sm:inline text-xs font-semibold px-1.5 py-0.5 rounded-full ${badge.className}`}>
-                  {badge.label}
-                </span>
                 <svg className="w-3 h-3 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
@@ -149,7 +131,7 @@ export function Navbar() {
                     onClick={() => setMenuOpen(false)}
                     className="block px-4 py-2.5 text-sm text-slate-300 hover:bg-accent/10 hover:text-accent transition-colors"
                   >
-                    Account & Billing
+                    Account
                   </Link>
                   <button
                     onClick={() => { signOut({ callbackUrl: "/" }); setMenuOpen(false); }}
@@ -201,11 +183,7 @@ export function Navbar() {
             ))}
             {currentAnalysisId && (
               <button
-                onClick={() => {
-                  if (!isPro) { window.location.href = "/pricing"; return; }
-                  setChatOpen(!chatOpen);
-                  setMobileOpen(false);
-                }}
+                onClick={() => { setChatOpen(!chatOpen); setMobileOpen(false); }}
                 className={`w-full text-left flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm transition duration-200 border ${
                   chatOpen
                     ? "bg-accent/15 text-accent border-accent/25"
@@ -215,7 +193,7 @@ export function Navbar() {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                 </svg>
-                AI Chat {!isPro && <span className="text-xs text-accentViolet">Pro</span>}
+                AI Chat
               </button>
             )}
           </nav>
