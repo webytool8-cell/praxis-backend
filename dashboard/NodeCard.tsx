@@ -2,30 +2,32 @@ import { memo } from "react";
 import { Handle, Position, NodeProps } from "reactflow";
 import { NodeKind } from "@/types/graph";
 
-const kindConfig: Record<NodeKind, { border: string; dot: string; badge: string; label: string }> = {
-  api: {
-    border: "border-cyan-500/30",
-    dot: "bg-cyan-400",
-    badge: "bg-cyan-500/15 text-cyan-300",
-    label: "API",
-  },
-  db: {
-    border: "border-violet-500/30",
-    dot: "bg-violet-400",
-    badge: "bg-violet-500/15 text-violet-300",
-    label: "Database",
-  },
+// Color-coded by architectural hierarchy level:
+// UI Layer (0) → emerald | API Layer (1) → cyan | Service Layer (2) → violet | Data Layer (3) → amber
+const kindConfig: Record<NodeKind, { label: string; borderLeft: string; dot: string; badge: string }> = {
   frontend: {
-    border: "border-emerald-500/30",
+    label: "UI Layer",
+    borderLeft: "border-l-[3px] border-l-emerald-500",
     dot: "bg-emerald-400",
     badge: "bg-emerald-500/15 text-emerald-300",
-    label: "Frontend",
+  },
+  api: {
+    label: "API Layer",
+    borderLeft: "border-l-[3px] border-l-cyan-500",
+    dot: "bg-cyan-400",
+    badge: "bg-cyan-500/15 text-cyan-300",
   },
   service: {
-    border: "border-indigo-500/30",
-    dot: "bg-indigo-400",
-    badge: "bg-indigo-500/15 text-indigo-300",
-    label: "Service",
+    label: "Service Layer",
+    borderLeft: "border-l-[3px] border-l-violet-500",
+    dot: "bg-violet-400",
+    badge: "bg-violet-500/15 text-violet-300",
+  },
+  db: {
+    label: "Data Layer",
+    borderLeft: "border-l-[3px] border-l-amber-500",
+    dot: "bg-amber-400",
+    badge: "bg-amber-500/15 text-amber-300",
   },
 };
 
@@ -36,10 +38,10 @@ function NodeCardComponent({
   const cfg = kindConfig[data.kind] ?? kindConfig.service;
   return (
     <div
-      className={`min-w-[210px] rounded-xl border bg-[#0d1117] ${cfg.border} px-4 py-3.5 shadow-lg transition-all duration-200 ${
+      className={`min-w-[210px] rounded-xl border border-slate-700/40 ${cfg.borderLeft} bg-[#0d1117] px-4 py-3.5 shadow-lg transition-all duration-200 ${
         selected || data.glow
-          ? "ring-1 ring-accent/50 border-accent/40 shadow-accent/10"
-          : "hover:border-white/20"
+          ? "ring-1 ring-accent/50 shadow-accent/10 border-slate-600/60"
+          : "hover:border-slate-600/60"
       }`}
     >
       <Handle

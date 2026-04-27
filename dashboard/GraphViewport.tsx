@@ -21,11 +21,12 @@ import type { AnalysisGraphData } from "@/types/graph";
 
 const nodeTypes = { nodeCard: NodeCard };
 
+// Edge colors match hierarchy level colors on NodeCard
 const kindEdgeColor: Record<string, string> = {
-  api: "#22d3ee",
-  service: "#818cf8",
-  frontend: "#34d399",
-  db: "#c084fc",
+  frontend: "#34d399", // emerald — UI Layer
+  api: "#22d3ee",      // cyan    — API Layer
+  service: "#a78bfa",  // violet  — Service Layer
+  db: "#fbbf24",       // amber   — Data Layer
 };
 
 function getNodeKind(nodeId: string, details: Record<string, any>): string {
@@ -143,7 +144,7 @@ export function GraphViewport() {
         const isHighlighted = connected.has(edge.source) || connected.has(edge.target);
         return {
           ...edge,
-          type: "bezier",
+          type: "straight",
           markerEnd: {
             type: MarkerType.ArrowClosed,
             color: baseColor,
