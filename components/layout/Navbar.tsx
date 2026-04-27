@@ -86,16 +86,17 @@ export function Navbar() {
           {currentAnalysisId && (
             <button
               onClick={() => setChatOpen(!chatOpen)}
-              className={`flex items-center gap-1.5 rounded-md px-3 py-2 transition duration-200 border ${
+              className={`flex items-center gap-2 rounded-md px-3 py-2 transition duration-200 border text-sm ${
                 chatOpen
                   ? "bg-accent/15 text-accent shadow-glow-sm border-accent/25"
                   : "border-transparent hover:bg-slate-800/70 hover:text-white"
               }`}
               title="AI Codebase Chat"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
               </svg>
+              Chat
             </button>
           )}
         </nav>
@@ -193,7 +194,7 @@ export function Navbar() {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                 </svg>
-                AI Chat
+                Chat
               </button>
             )}
           </nav>
