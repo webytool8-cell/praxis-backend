@@ -2,44 +2,70 @@ import { memo } from "react";
 import { Handle, Position, NodeProps } from "reactflow";
 import { NodeKind } from "@/types/graph";
 
-const tokenStyle: Record<NodeKind, string> = {
-  api: "from-cyan-500/25 to-blue-500/10",
-  db: "from-violet-500/25 to-fuchsia-500/10",
-  frontend: "from-emerald-500/25 to-cyan-500/10",
-  service: "from-blue-500/25 to-indigo-500/10",
+const kindConfig: Record<NodeKind, { border: string; dot: string; badge: string; label: string }> = {
+  api: {
+    border: "border-cyan-500/30",
+    dot: "bg-cyan-400",
+    badge: "bg-cyan-500/15 text-cyan-300",
+    label: "API",
+  },
+  db: {
+    border: "border-violet-500/30",
+    dot: "bg-violet-400",
+    badge: "bg-violet-500/15 text-violet-300",
+    label: "Database",
+  },
+  frontend: {
+    border: "border-emerald-500/30",
+    dot: "bg-emerald-400",
+    badge: "bg-emerald-500/15 text-emerald-300",
+    label: "Frontend",
+  },
+  service: {
+    border: "border-indigo-500/30",
+    dot: "bg-indigo-400",
+    badge: "bg-indigo-500/15 text-indigo-300",
+    label: "Service",
+  },
 };
 
-const tokenDot: Record<NodeKind, string> = {
-  api: "bg-cyan-400",
-  db: "bg-violet-400",
-  frontend: "bg-emerald-400",
-  service: "bg-blue-400",
-};
-
-function NodeCardComponent({ data, selected }: NodeProps<{ label: string; kind: NodeKind; glow?: boolean }>) {
+function NodeCardComponent({
+  data,
+  selected,
+}: NodeProps<{ label: string; kind: NodeKind; subtitle?: string; glow?: boolean }>) {
+  const cfg = kindConfig[data.kind] ?? kindConfig.service;
   return (
     <div
-      className={`min-w-[170px] rounded-xl border border-slate-700/80 bg-gradient-to-b ${tokenStyle[data.kind]} p-3 shadow-soft transition-all duration-300 ${
-        selected || data.glow ? "shadow-glow border-accent/70" : ""
+      className={`min-w-[210px] rounded-xl border bg-[#0d1117] ${cfg.border} px-4 py-3.5 shadow-lg transition-all duration-200 ${
+        selected || data.glow
+          ? "ring-1 ring-accent/50 border-accent/40 shadow-accent/10"
+          : "hover:border-white/20"
       }`}
     >
-      <Handle type="target" position={Position.Left} className="!h-2 !w-2 !border-none !bg-slate-400" />
-      <div className="flex items-center gap-2">
-        <span className={`h-2 w-2 rounded-full ${tokenDot[data.kind]} animate-pulseSlow`} />
-        <p className="text-xs uppercase tracking-wide text-slate-300">{data.kind}</p>
+      <Handle
+        type="target"
+        position={Position.Left}
+        className="!h-3 !w-3 !rounded-full !border-2 !border-slate-700 !bg-slate-600"
+      />
+
+      <div className="flex items-center gap-2 mb-2">
+        <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${cfg.dot} animate-pulseSlow`} />
+        <span className={`text-[10px] font-medium uppercase tracking-widest px-1.5 py-0.5 rounded ${cfg.badge}`}>
+          {cfg.label}
+        </span>
       </div>
-      <p className="mt-1 text-sm font-medium text-slate-100">{data.label}</p>
-      <svg className="mt-2 h-4 w-full opacity-40" viewBox="0 0 200 20" fill="none" aria-hidden>
-        <path d="M0 10 H200" stroke="url(#line-grad)" strokeWidth="1" />
-        <defs>
-          <linearGradient id="line-grad" x1="0" y1="0" x2="200" y2="0">
-            <stop stopColor="#5B8CFF" stopOpacity="0" />
-            <stop offset="0.5" stopColor="#5B8CFF" stopOpacity="0.7" />
-            <stop offset="1" stopColor="#8B5CF6" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-      </svg>
-      <Handle type="source" position={Position.Right} className="!h-2 !w-2 !border-none !bg-slate-400" />
+
+      <p className="text-sm font-semibold text-white leading-snug">{data.label}</p>
+
+      {data.subtitle && (
+        <p className="text-[11px] text-slate-400 mt-0.5 leading-snug line-clamp-2">{data.subtitle}</p>
+      )}
+
+      <Handle
+        type="source"
+        position={Position.Right}
+        className="!h-3 !w-3 !rounded-full !border-2 !border-slate-700 !bg-slate-600"
+      />
     </div>
   );
 }

@@ -74,12 +74,12 @@ const makeNode = (id: string, x: number, y: number): Node => ({
 export const templates: Record<ViewTemplate, GraphTemplate> = {
   architecture: {
     nodes: [
-      makeNode("gateway", 60, 140),
-      makeNode("auth", 360, 40),
-      makeNode("payments", 360, 160),
-      makeNode("analytics", 360, 280),
-      makeNode("users-db", 670, 70),
-      makeNode("payments-db", 670, 190),
+      makeNode("gateway", 60, 200),
+      makeNode("auth", 480, 60),
+      makeNode("payments", 480, 220),
+      makeNode("analytics", 480, 380),
+      makeNode("users-db", 900, 60),
+      makeNode("payments-db", 900, 220),
     ],
     edges: [
       { id: "e1", source: "gateway", target: "auth", animated: true },
@@ -92,12 +92,12 @@ export const templates: Record<ViewTemplate, GraphTemplate> = {
   },
   dataFlow: {
     nodes: [
-      makeNode("analytics", 80, 40),
-      makeNode("gateway", 340, 40),
-      makeNode("auth", 590, 20),
-      makeNode("payments", 590, 150),
-      makeNode("users-db", 860, 20),
-      makeNode("payments-db", 860, 160),
+      makeNode("analytics", 60, 80),
+      makeNode("gateway", 440, 80),
+      makeNode("auth", 820, 20),
+      makeNode("payments", 820, 200),
+      makeNode("users-db", 1200, 20),
+      makeNode("payments-db", 1200, 200),
     ],
     edges: [
       { id: "d1", source: "analytics", target: "gateway", animated: true },
@@ -110,12 +110,12 @@ export const templates: Record<ViewTemplate, GraphTemplate> = {
   },
   dependency: {
     nodes: [
-      makeNode("gateway", 280, 140),
-      makeNode("auth", 120, 40),
-      makeNode("payments", 480, 40),
-      makeNode("analytics", 120, 260),
-      makeNode("users-db", 480, 260),
-      makeNode("payments-db", 680, 140),
+      makeNode("gateway", 440, 220),
+      makeNode("auth", 120, 60),
+      makeNode("payments", 760, 60),
+      makeNode("analytics", 120, 380),
+      makeNode("users-db", 760, 380),
+      makeNode("payments-db", 1080, 220),
     ],
     edges: [
       { id: "dp1", source: "auth", target: "gateway", animated: true },
@@ -128,12 +128,12 @@ export const templates: Record<ViewTemplate, GraphTemplate> = {
   },
   risk: {
     nodes: [
-      makeNode("payments", 280, 40),
-      makeNode("gateway", 60, 170),
-      makeNode("auth", 280, 170),
-      makeNode("payments-db", 500, 170),
-      makeNode("analytics", 60, 300),
-      makeNode("users-db", 280, 300),
+      makeNode("payments", 440, 60),
+      makeNode("gateway", 60, 260),
+      makeNode("auth", 440, 260),
+      makeNode("payments-db", 820, 260),
+      makeNode("analytics", 60, 460),
+      makeNode("users-db", 440, 460),
     ],
     edges: [
       { id: "r1", source: "gateway", target: "payments", animated: true },

@@ -4,12 +4,14 @@ import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ReactFlow, {
   Background,
-  Controls,
+  BackgroundVariant,
   Edge,
   MarkerType,
   MiniMap,
   Node,
   NodeMouseHandler,
+  Panel,
+  useReactFlow,
 } from "reactflow";
 import "reactflow/dist/style.css";
 import { NodeCard } from "@/dashboard/NodeCard";
@@ -18,6 +20,41 @@ import { usePraxisStore } from "@/store/usePraxisStore";
 import type { AnalysisGraphData } from "@/types/graph";
 
 const nodeTypes = { nodeCard: NodeCard };
+
+const kindEdgeColor: Record<string, string> = {
+  api: "#22d3ee",
+  service: "#818cf8",
+  frontend: "#34d399",
+  db: "#c084fc",
+};
+
+function getNodeKind(nodeId: string, details: Record<string, any>): string {
+  return details[nodeId]?.type ?? "service";
+}
+
+function CustomControls() {
+  const { zoomIn, zoomOut, fitView } = useReactFlow();
+  return (
+    <Panel position="bottom-right">
+      <div className="flex flex-col gap-1 mb-4 mr-4">
+        {[
+          { label: "+", action: () => zoomIn({ duration: 200 }), title: "Zoom in" },
+          { label: "−", action: () => zoomOut({ duration: 200 }), title: "Zoom out" },
+          { label: "⊡", action: () => fitView({ padding: 0.15, duration: 400 }), title: "Fit view" },
+        ].map(({ label, action, title }) => (
+          <button
+            key={title}
+            onClick={action}
+            title={title}
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-700/60 bg-slate-900/90 text-slate-300 text-sm font-medium hover:border-accent/40 hover:text-white transition-all backdrop-blur-sm"
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+    </Panel>
+  );
+}
 
 function nodeColor(complexity: number, heatmapMode: boolean) {
   if (!heatmapMode) return "#4488ff";
@@ -43,7 +80,6 @@ export function GraphViewport() {
 
   const [loadingAnalysis, setLoadingAnalysis] = useState(false);
 
-  // Load analysis from API when analysisId param is present and not already loaded
   useEffect(() => {
     if (!analysisId) return;
     if (currentAnalysisId === analysisId && currentAnalysis) return;
@@ -60,7 +96,6 @@ export function GraphViewport() {
       .finally(() => setLoadingAnalysis(false));
   }, [analysisId, currentAnalysisId, currentAnalysis, setCurrentAnalysis]);
 
-  // Use real analysis data if available, fall back to static templates
   const activePayload = useMemo(() => {
     if (currentAnalysis) {
       return {
@@ -91,35 +126,39 @@ export function GraphViewport() {
       : activePayload.nodes.filter((node: any) => !node.id.includes("db"));
     const scopedNodeIds = new Set(scopedNodes.map((node: any) => node.id));
 
-    const mappedNodes: Node[] = scopedNodes.map((node: any) => {
-      const details = activePayload.details[node.id];
-      const complexity = details?.metrics?.complexity ?? 20;
-      return {
-        ...node,
-        data: {
-          ...node.data,
-          glow: connected.has(node.id),
-        },
-        style: {
-          transition: "all 240ms ease-in-out",
-          boxShadow: `0 0 0 1px ${nodeColor(complexity, heatmapMode)}44`,
-        },
-      };
-    });
+    const mappedNodes: Node[] = scopedNodes.map((node: any) => ({
+      ...node,
+      data: {
+        ...node.data,
+        glow: connected.has(node.id),
+      },
+      style: { transition: "all 240ms ease-in-out" },
+    }));
 
     const mappedEdges: Edge[] = activePayload.edges
       .filter((edge: any) => scopedNodeIds.has(edge.source) && scopedNodeIds.has(edge.target))
-      .map((edge: any) => ({
-        ...edge,
-        type: "smoothstep",
-        markerEnd: { type: MarkerType.ArrowClosed, color: "#4488ff" },
-        animated: true,
-        style: {
-          stroke: connected.has(edge.source) || connected.has(edge.target) ? "#93c5fd" : "#2d5db8",
-          strokeWidth: connected.has(edge.source) || connected.has(edge.target) ? 2.2 : 1.2,
-          transition: "all 240ms ease-in-out",
-        },
-      }));
+      .map((edge: any) => {
+        const sourceKind = getNodeKind(edge.source, activePayload.details);
+        const baseColor = kindEdgeColor[sourceKind] ?? "#4488ff";
+        const isHighlighted = connected.has(edge.source) || connected.has(edge.target);
+        return {
+          ...edge,
+          type: "bezier",
+          markerEnd: {
+            type: MarkerType.ArrowClosed,
+            color: baseColor,
+            width: 16,
+            height: 16,
+          },
+          animated: isHighlighted,
+          style: {
+            stroke: baseColor,
+            strokeWidth: isHighlighted ? 2 : 1.2,
+            opacity: isHighlighted ? 1 : 0.55,
+            transition: "all 240ms ease-in-out",
+          },
+        };
+      });
 
     setRenderNodes(mappedNodes);
     setRenderEdges(mappedEdges);
@@ -137,6 +176,7 @@ export function GraphViewport() {
           nodes={renderNodes}
           edges={renderEdges}
           fitView
+          fitViewOptions={{ padding: 0.15 }}
           nodeTypes={nodeTypes}
           onNodeClick={(_, node) => {
             const details = activePayload.details[node.id];
@@ -145,18 +185,21 @@ export function GraphViewport() {
           onNodeMouseEnter={onNodeHover}
           onNodeMouseLeave={() => setHoveredNodeId(null)}
           className="transition-all duration-300"
+          minZoom={0.25}
+          maxZoom={2.5}
         >
-          <Background color="#172030" gap={26} size={1} />
+          <Background variant={BackgroundVariant.Dots} color="#1e293b" gap={24} size={1.5} />
           <MiniMap
             pannable
             zoomable
-            style={{ backgroundColor: "#0f1622", border: "1px solid #223047" }}
+            style={{ backgroundColor: "#090e1a", border: "1px solid #1e293b" }}
             nodeColor={(node) => {
               const details = activePayload.details[node.id];
               return nodeColor(details?.metrics?.complexity ?? 20, heatmapMode);
             }}
+            maskColor="rgba(0,0,0,0.45)"
           />
-          <Controls showInteractive={false} />
+          <CustomControls />
         </ReactFlow>
       </div>
 
