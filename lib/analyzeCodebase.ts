@@ -189,8 +189,8 @@ function generateFlowLayout(nodes: RawNode[]) {
     group.forEach((node, colIndex) => {
       positions.push({
         id: node.id,
-        x: colIndex * 220 + (rowIndex % 2 === 0 ? 110 : 0),
-        y: rowIndex * 180,
+        x: colIndex * 380 + (rowIndex % 2 === 0 ? 190 : 0),
+        y: rowIndex * 200,
       });
     });
   });

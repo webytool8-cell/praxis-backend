@@ -129,8 +129,11 @@ export function GraphViewport() {
 
     const mappedNodes: Node[] = scopedNodes.map((node: any) => ({
       ...node,
+      type: "nodeCard",
       data: {
         ...node.data,
+        // normalize legacy format (nodeKind → kind, praxisNode → nodeCard)
+        kind: node.data.kind ?? node.data.nodeKind ?? "service",
         glow: connected.has(node.id),
       },
       style: { transition: "all 240ms ease-in-out" },
